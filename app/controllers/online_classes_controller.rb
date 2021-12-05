@@ -1,0 +1,2 @@
+class OnlineClassesController < ApplicationController
+end
