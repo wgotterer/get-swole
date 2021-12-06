@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_06_145002) do
+ActiveRecord::Schema.define(version: 2021_12_06_172728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 2021_12_06_145002) do
   end
 
   create_table "private_classes", force: :cascade do |t|
-    t.string "name"
     t.string "description"
     t.integer "date"
     t.bigint "client_id", null: false
@@ -56,11 +55,13 @@ ActiveRecord::Schema.define(version: 2021_12_06_145002) do
     t.integer "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "online_class_id"
+    t.integer "client_id"
   end
 
   create_table "trainers", force: :cascade do |t|
     t.string "name"
-    t.text "content"
+    t.string "bio"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
