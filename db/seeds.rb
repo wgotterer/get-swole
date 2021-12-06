@@ -5,14 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+OnlineClass.destroy_all
+OnlineClass.reset_pk_sequence
 PrivateClass.destroy_all
 PrivateClass.reset_pk_sequence
 Client.destroy_all
 Client.reset_pk_sequence
 Trainer.destroy_all
 Trainer.reset_pk_sequence
-OnlineClass.destroy_all
-OnlineClass.reset_pk_sequence
 User.destroy_all
 User.reset_pk_sequence
 Review.destroy_all
@@ -30,8 +30,6 @@ jane = Trainer.create(name:"Jane", bio:"Hey! Jane here. I'm going to make you do
 juliette = Trainer.create(name:"Juliette", bio:"Ruff! It's me! Your favorite furry friend!")
 william = Trainer.create(name:"William", bio:"Will.I.Am? More like Will.I.Can do this workout!")
 
-juliettepushups = OnlineClass.create(video: "Juliette push ups", description:"Push up demontration from our most beloved trainedr Juliette.", trainer_id:juliette.id, category:"Strength building", name:"If I can do it, you better be doing it!" )
-juliettewalks = OnlineClass.create(video: "Juliette walks", description:"Watch and learn how to walk like Juliette.",  trainer_id:juliette.id, category:"Endurance building", name:"Take a stroll with your favorite trainer." )
 
 User.create(username:"billy", password:"billy", client_id:billy.id, trainer_id:"nil")
 User.create(username:"mandy", password:"mandy", client_id:mandy.id, trainer_id:"nil")
@@ -41,6 +39,9 @@ User.create(username:"brendan", password:"brendan", client_id: "nil", trainer_id
 User.create(username:"jane", password:"jane", client_id: "nil", trainer_id: jane.id)
 User.create(username:"juliette", password:"juliette", client_id: "nil" , trainer_id:juliette.id)
 User.create(username:"william", password:"william", client_id: "nil", trainer_id:william.id)
+
+juliettepushups = OnlineClass.create(video: "Juliette push ups", description:"Push up demontration from our most beloved trainedr Juliette.", client_id:"nil", trainer_id:juliette.id, category:"Strength building", name:"If I can do it, you better be doing it!")
+juliettewalks = OnlineClass.create(video: "Juliette walks", description:"Watch and learn how to walk like Juliette.", client_id:"nil",  trainer_id:juliette.id, category:"Endurance building", name:"Take a stroll with your favorite trainer.")
 
 
 PrivateClass.create(description:"I want to increase my shoulder strength.",date:"20211210040000",client_id:billy.id, trainer_id:brendan.id)

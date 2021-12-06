@@ -1,3 +1,3 @@
 class TrainerSerializer < ActiveModel::Serializer
-  attributes :id, :name, :content
+  attributes :id, :name, :bio
 end
