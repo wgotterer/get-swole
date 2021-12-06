@@ -11,6 +11,7 @@ mandy = Client.create(username:"mandy", email:"mandy@gmail.com", name:"Mandy", b
 grim = Client.create(username:"grim", email:"grim@gmail.com", name:"Grim", birth:"19950628", goal:"endurance")
 dad = Client.create(username:"dad", email:"dad@gmail.com", name:"Dad", birth:"19990628", goal:"strength")
 
+
 brendan = Trainer.create(name:"Brendan", content:"I can't believe it's not butter! It's Brendan")
 jane = Trainer.create(name:"Jane", content:"Hey! Jane here. I'm going to make you do crunches until your breakfast is on the floor!")
 juliette = Trainer.create(name:"Juliette", content:"Ruff! It's me! Your favorite furry friend!")
@@ -29,3 +30,8 @@ Privateclass.create(description:"Feeling a litte tight in my hips.",date:"202112
 Reviews.create(content:"Juliette is the best training", rating:"10", online_class_id: juliettepushups.id, client_id: billy.id)
 Reviews.create(content:"I'm walking better now! Thanks Juliette!", rating:"10", online_class_id: juliettewalks.id, client_id: dad.id)
 
+
+brendan = Trainer.create(name:"Brendan", content:"I can't believe it's not butter! It's Brendan")
+jane = Trainer.create(name:"Jane", content:"Hey! Jane here. I'm going to make you do crunches until your breakfast is on the floor!")
+juliette = Trainer.create(name:"Juliette", content:"Ruff! It's me! Your favorite furry friend!")
+william = Trainer.create(name:"William", content:"Will.I.Am? More like Will.I.Can do this workout!")
