@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2021_12_06_172728) do
 
   create_table "private_classes", force: :cascade do |t|
     t.string "description"
-    t.date "date"
+    t.integer "date"
     t.bigint "client_id", null: false
     t.bigint "trainer_id", null: false
     t.datetime "created_at", precision: 6, null: false
