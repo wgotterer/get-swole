@@ -8,6 +8,14 @@ class ClientsController < ApplicationController
           render json: { errors: client.errors.full_messages }, status: :unprocessable_entity
         end
     end
+    def show
+      client = Client.find_by(id: session[:client_id])
+      if client
+        render json: client
+      else
+        render json: {errors: "User not authorized"}, status: :unauthorized
+      end
+    end
 
     private
     
