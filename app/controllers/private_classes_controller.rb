@@ -1,5 +1,7 @@
 class PrivateClassesController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
+    before_action :authorize
+
     def create
         private_class= PrivateClass.create(private_class_params)
         if private_class.valid?
@@ -24,5 +26,8 @@ class PrivateClassesController < ApplicationController
     end
     def render_not_found_response
         render json: { error: "Private class not found" }, status: :not_found
-      end
+    end
+    def authorize
+      return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
+    end
 end
