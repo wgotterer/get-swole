@@ -1,0 +1,2 @@
+class ClientOnlineClassesController < ApplicationController
+end

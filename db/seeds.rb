@@ -43,6 +43,7 @@ User.create(username:"william", password:"william", client_id: "nil", trainer_id
 juliettepushups = OnlineClass.create(video: "Juliette push ups", description:"Push up demontration from our most beloved trainedr Juliette.", client_id:"nil", trainer_id:juliette.id, category:"Strength building", name:"If I can do it, you better be doing it!")
 juliettewalks = OnlineClass.create(video: "Juliette walks", description:"Watch and learn how to walk like Juliette.", client_id:"nil",  trainer_id:juliette.id, category:"Endurance building", name:"Take a stroll with your favorite trainer.")
 
+# juliettewalks = OnlineClass.create(video: "Juliette walks", description:"Watch and learn how to walk like Juliette.", client_id: 1,  trainer_id: 1, category:"Endurance building", name:"Take a stroll with your favorite trainer.")
 
 PrivateClass.create(description:"I want to increase my shoulder strength.",date:"20211210040000",client_id:billy.id, trainer_id:brendan.id)
 PrivateClass.create(description:"I am ready for whatever.",date:"20211215090000",client_id:mandy.id, trainer_id:william.id)
