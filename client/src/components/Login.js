@@ -1,8 +1,6 @@
-import {useState} from 'react';
-import TrainerCard from "./TrainerCard";
+import {useEffect, useState} from 'react';
 
-
-function Login() {
+function Login({onLogin}) {
     const [loginFormData, setLoginFormData] = useState({
         username: '',
         password: ''
@@ -17,8 +15,8 @@ function Login() {
         password: '',
         confirm: ''
     });
-
-
+        
+   
     function handleLoginChange(event) {
         setLoginFormData({...loginFormData, [event.target.name]: event.target.value})
     }
@@ -27,7 +25,8 @@ function Login() {
         console.log(event.target.value);
         setSignupFormData({...signupFormData, [event.target.name]: event.target.value});
     }
-
+  
+    
     function handleLogin(event) {
         event.preventDefault();
         fetch('http://localhost:3000/login', { // need correct session controller route for login
@@ -38,8 +37,11 @@ function Login() {
             body: JSON.stringify(loginFormData)
         })
         .then(resp => resp.json())
-        .then(data => console.log(data));
+        .then(data => {console.log(data)
+            onLogin(data)
+         });
     }
+ 
 
     function handleSignup(event) {
         event.preventDefault();
