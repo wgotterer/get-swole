@@ -27,10 +27,10 @@ grim = Client.create(email:"grim@gmail.com", name:"Grim", birth:"19950628", goal
 dad = Client.create( email:"dad@gmail.com", name:"Dad", birth:"19990628", goal:"strength")
 
 
-brendan = Trainer.create(name:"Brendan", bio:"I can't believe it's not butter! It's Brendan")
-jane = Trainer.create(name:"Jane", bio:"Hey! Jane here. I'm going to make you do crunches until your breakfast is on the floor!")
-juliette = Trainer.create(name:"Juliette", bio:"Ruff! It's me! Your favorite furry friend!")
-william = Trainer.create(name:"William", bio:"Will.I.Am? More like Will.I.Can do this workout!")
+brendan = Trainer.create(name:"Brendan", picture: "https://c8.alamy.com/comp/T9CB93/funny-cartoon-monster-with-big-mouth-vector-blue-monster-illustration-halloween-design-T9CB93.jpg", bio:"I can't believe it's not butter! It's Brendan")
+jane = Trainer.create(name:"Jane", picture:"https://previews.123rf.com/images/drawkman/drawkman1807/drawkman180700294/104064005-funny-cartoon-monster-vector-orange-monster-illustration-halloween-design.jpg", bio:"Hey! Jane here. I'm going to make you do crunches until your breakfast is on the floor!")
+juliette = Trainer.create(name:"Juliette", picture:"https://ih1.redbubble.net/image.363652257.7171/st,small,845x845-pad,1000x1000,f8f8f8.u4.jpg", bio:"Ruff! It's me! Your favorite furry friend!")
+william = Trainer.create(name:"William", picture:"https://i.graphicmama.com/uploads/2016/8/57a4a36fa6003-hal-the-messy-pal.png", bio:"Will.I.Am? More like Will.I.Can do this workout!")
 
 
 User.create(username:"billy", password:"billy", client_id:billy.id, trainer_id:"nil")
