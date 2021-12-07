@@ -10,7 +10,7 @@ function Classes({loggedInUser}) {
         .then(data=>{console.log(data)
         setClassToDisplay(data)})
     },[])
-    
+    console.log(classToDisplay)
     let singleClass = classToDisplay.map((oneclass)=>{
         return <ClassCard
         key={oneclass.id}
@@ -40,7 +40,10 @@ function Classes({loggedInUser}) {
                         <option value='Weight Loss'>Weight Loss</option>
                     </select>
                 </form>
-                {singleClass}
+                {(classToDisplay[0]!==undefined)?
+                <div>{singleClass}</div>:
+                <p>Don't show clasee </p>}
+                
             </div>
             {/* {classToDisplay === undefined ? <p>Feel free to click on any class above to get more details about it</p> : <ClassInfo classToDisplay={classToDisplay} />} */}
         </div>

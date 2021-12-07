@@ -6,6 +6,7 @@ import { useState ,useEffect} from 'react';
 import Login from './Login';
 import Dashboard from './Dashboard';
 import Classes from './Classes';
+import PrivateClasses from './PrivateClasses';
 
 function App() {
 
@@ -48,6 +49,7 @@ function App() {
         <Route path='/login' element={<Login setLoggedInUser={setLoggedInUser} onLogin={setUser}/>}/>
         <Route path='/dashboard' element={<Dashboard loggedInUser={loggedInUser}/>} />
         <Route path='/classes' element={<Classes loggedInUser={loggedInUser}/>} />
+        <Route path='/private_classes' element={<PrivateClasses loggedInUser={loggedInUser}/>} />
       </Routes>
     </div>
   ) 
