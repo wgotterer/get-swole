@@ -2,12 +2,11 @@ import { useState } from "react";
 import ClassCard from "./ClassCard";
 import ClassInfo from "./ClassInfo";
 
-function Dashboard() {
+function Dashboard({loggedInUser}) {
     const [classToDisplay, setClassToDisplay] = useState(undefined);
 
-    return (
+    return loggedInUser ? (
         <div className='Dashboard'>
-            <p>this is the dashboard</p>
             <h3>Welcome back (user's name goes here)!</h3>
             <div className='FavoriteClassContainer'>
                 <h2>These are your favorite Classes:</h2>
@@ -24,6 +23,10 @@ function Dashboard() {
             </div>
             {classToDisplay === undefined ? <p>Feel free to click on any class above to get more details about it</p> : <ClassInfo classToDisplay={classToDisplay} />}
         </div>
+    )
+    :
+    (
+      <p>Please log in!</p>  
     )
 }
 

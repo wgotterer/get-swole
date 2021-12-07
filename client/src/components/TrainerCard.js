@@ -1,10 +1,11 @@
-function TrainerCard({name}) {
-    return (
+function TrainerCard({trainer}) {
+    return trainer ? (
         <div className='TrainerCard'>
-            <p>This is a trainer card</p>
-            <p>{name}</p>
+            <h3>{trainer.name}</h3>
+            <p>{trainer.bio}</p>
+            <img height="200" width="200" src={trainer.picture} />
         </div>
-    )
+    ) : null
 }
 
 export default TrainerCard;

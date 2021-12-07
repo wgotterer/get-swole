@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
+    before_action :authorize
+
     def create
         review = Review.create(review_params)
         if review.valid?
@@ -27,5 +29,8 @@ class ReviewsController < ApplicationController
     end
     def render_not_found_response
         render json: { error: "Review not found" }, status: :not_found
-      end
+    end
+    def authorize
+      return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
+    end
 end

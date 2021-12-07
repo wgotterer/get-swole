@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ClassCard from "./ClassCard";
 import ClassInfo from "./ClassInfo";
 
-function Classes() {
+function Classes({loggedInUser}) {
     const [classToDisplay, setClassToDisplay] = useState([]);
     useEffect(()=>{
         fetch('http://localhost:3000/online_classes')
@@ -21,9 +21,9 @@ function Classes() {
         />
     })
 
-    return (
+
+    return loggedInUser ? (
         <div className='Classes'>
-            <p>This is the classes page</p>
             <div className='FavoriteClassContainer'>
                 <h2>These are all of the Classes:</h2>
                 <form>
@@ -44,6 +44,10 @@ function Classes() {
             </div>
             {/* {classToDisplay === undefined ? <p>Feel free to click on any class above to get more details about it</p> : <ClassInfo classToDisplay={classToDisplay} />} */}
         </div>
+    )
+    :
+    (
+        <p>Please log in!</p>
     )
 }
 
