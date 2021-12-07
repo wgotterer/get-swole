@@ -1,7 +1,8 @@
-function ClassInfo({classToDisplay}) {
+function ClassInfo({classInfo}) {
     return (
         <div className='ClassInfo'>
-            <p>This container holds all the detailed info about a class</p>
+           <p>{classInfo.description}</p>
+           <p>{classInfo.video}</p>
         </div>
     )
 }
