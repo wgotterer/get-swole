@@ -2,25 +2,31 @@ import {Route, Routes} from 'react-router-dom';
 import NavBar from './NavBar';
 import Home from './Home';
 import './App.css';
-import { useState } from 'react';
+import { useState ,useEffect} from 'react';
 import Login from './Login';
 import Dashboard from './Dashboard';
 import Classes from './Classes';
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState(false);
-  const [user, setUser] = useState(null);
-
+  const [user, setUser] = useState(null)
   useEffect(() => {
-    fetch("/me").then((response) => {
+    fetch('http://localhost:3000/me').then((response) => {
       if (response.ok) {
-        response.json().then((user) => setUser(user));
+        response.json().then((user) =>{ setUser(user) 
+          console.log(user)
+          setLoggedInUser(true)
+       });
       }
     });
   }, []);
 
+  function handleLoginButton(){
+    setLoggedInUser(loggedInUser)
+  }
 
-  if (user)
+  if (!user) return <Login onLogin={setUser}/>
+    ;
   return (
     // if (user) {
     //   return <h2>Welcome, {user.username}!</h2>;
@@ -29,11 +35,12 @@ function App() {
     // }
     
     <div className="App">
-      <h2>Welcome, {user.username}!</h2>
-      <NavBar loggedInUser={loggedInUser}/>
+      <NavBar loggedInUser={handleLoginButton}/>
+       <h2>Welcome, {user.username}!</h2>
+  
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/login' element={<Login />} />
+        <Route path='/login' element={<Login onLogin={setUser}/>}/>
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/classes' element={<Classes />} />
       </Routes>
