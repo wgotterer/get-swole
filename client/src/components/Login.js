@@ -41,13 +41,15 @@ function Login({onLogin, setLoggedInUser}) {
     
     function handleLogin(event) {
         event.preventDefault();
-        fetch('http://localhost:3000/login', { // need correct session controller route for login
+        fetch('http://localhost:3000/login', { 
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
+            credentials: "include",
+            withCredentials: true,
             body: JSON.stringify(loginFormData)
-        })
+         })
         .then(resp => resp.json())
         .then(data => {console.log(data)
             onLogin(data)

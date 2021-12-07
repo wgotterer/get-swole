@@ -14,7 +14,8 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState(false);
   const [user, setUser] = useState(null)
   useEffect(() => {
-    fetch('http://localhost:3000/me').then((response) => {
+    fetch('http://localhost:3000/me', {credentials: 'include'})
+    .then((response) => {
       if (response.ok) {
         response.json().then((user) =>{ setUser(user) 
           console.log(user)
