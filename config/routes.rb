@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   
-  resources :client_online_classes
+  # resources :client_online_classes
   resources :users, only: [:create]
   resources :private_classes, only: [:create, :destroy, :index]
-  resources :reviews, only: [:create, :destroy, :index]
+  resources :reviews, only: [:index, :create, :destroy]
   resources :trainers, only: [:index]
   resources :online_classes, only: [:create, :destroy, :index, :show]
   resources :clients, only: [:create, :show]

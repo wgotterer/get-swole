@@ -15,10 +15,10 @@ class ReviewsController < ApplicationController
         head :no_content
     end
 
-    def index
-        reviews = Review.all
-        render json: reviews
-    end
+   def index
+    reviews = Review.all
+    render json: reviews
+   end
 
     private
     

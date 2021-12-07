@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_06_172728) do
+ActiveRecord::Schema.define(version: 2021_12_07_145805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "client_online_classes", force: :cascade do |t|
+    t.bigint "client_id", null: false
+    t.bigint "online_class_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_id"], name: "index_client_online_classes_on_client_id"
+    t.index ["online_class_id"], name: "index_client_online_classes_on_online_class_id"
+  end
 
   create_table "clients", force: :cascade do |t|
     t.string "email"
@@ -27,19 +36,17 @@ ActiveRecord::Schema.define(version: 2021_12_06_172728) do
   create_table "online_classes", force: :cascade do |t|
     t.string "video"
     t.string "description"
-    t.bigint "client_id", null: false
     t.bigint "trainer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "category"
     t.string "name"
-    t.index ["client_id"], name: "index_online_classes_on_client_id"
     t.index ["trainer_id"], name: "index_online_classes_on_trainer_id"
   end
 
   create_table "private_classes", force: :cascade do |t|
     t.string "description"
-    t.integer "date"
+    t.date "date"
     t.bigint "client_id", null: false
     t.bigint "trainer_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -73,7 +80,8 @@ ActiveRecord::Schema.define(version: 2021_12_06_172728) do
     t.integer "trainer_id"
   end
 
-  add_foreign_key "online_classes", "clients"
+  add_foreign_key "client_online_classes", "clients"
+  add_foreign_key "client_online_classes", "online_classes"
   add_foreign_key "online_classes", "trainers"
   add_foreign_key "private_classes", "clients"
   add_foreign_key "private_classes", "trainers"

@@ -1,5 +1,5 @@
 class OnlineClassSerializer < ActiveModel::Serializer
   attributes :id, :video, :description, :category, :name
-  has_one :client
+  has_many :clients
   has_one :trainer
 end
