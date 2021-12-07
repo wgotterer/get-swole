@@ -1,9 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ClassCard from "./ClassCard";
 import ClassInfo from "./ClassInfo";
 
 function Classes() {
-    const [classToDisplay, setClassToDisplay] = useState(undefined);
+    const [classToDisplay, setClassToDisplay] = useState([]);
+    useEffect(()=>{
+        fetch('http://localhost:3000/online_classes')
+        .then(resp => resp.json())
+        .then(data=>{console.log(data)
+        setClassToDisplay(data)})
+    },[])
+    
+    let singleClass = classToDisplay.map((oneclass)=>{
+        return <ClassCard
+        key={oneclass.id}
+        oneclass= {oneclass}
+        name= {oneclass.name}
+        category={oneclass.category}
+        trainer={oneclass.trainer.name}
+        />
+    })
 
     return (
         <div className='Classes'>
@@ -24,12 +40,9 @@ function Classes() {
                         <option value='Weight Loss'>Weight Loss</option>
                     </select>
                 </form>
-                <ClassCard />
-                <ClassCard />
-                <ClassCard />
-                <ClassCard />
+                {singleClass}
             </div>
-            {classToDisplay === undefined ? <p>Feel free to click on any class above to get more details about it</p> : <ClassInfo classToDisplay={classToDisplay} />}
+            {/* {classToDisplay === undefined ? <p>Feel free to click on any class above to get more details about it</p> : <ClassInfo classToDisplay={classToDisplay} />} */}
         </div>
     )
 }
