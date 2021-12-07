@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+ClientOnlineClass.destroy_all
+ClientOnlineClass.reset_pk_sequence
 OnlineClass.destroy_all
 OnlineClass.reset_pk_sequence
 PrivateClass.destroy_all
