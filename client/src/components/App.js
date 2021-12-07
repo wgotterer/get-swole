@@ -8,6 +8,8 @@ import Dashboard from './Dashboard';
 import Classes from './Classes';
 
 function App() {
+
+  
   const [loggedInUser, setLoggedInUser] = useState(false);
   const [user, setUser] = useState(null)
   useEffect(() => {
@@ -15,17 +17,20 @@ function App() {
       if (response.ok) {
         response.json().then((user) =>{ setUser(user) 
           setLoggedInUser(true)
+          console.log(loggedInUser)
        });
       }
     });
   }, []);
 
-  function handleLoginButton(){
-    setLoggedInUser(loggedInUser)
-  }
+  // function handleLoginButton(){
+  //   setLoggedInUser(loggedInUser)
+  // }
 
-  if (!user) return <Login onLogin={setUser}/>
-    ;
+ 
+
+  // if (!user) return <Login onLogin={setUser}/>
+    
   return (
     // if (user) {
     //   return <h2>Welcome, {user.username}!</h2>;
@@ -34,17 +39,16 @@ function App() {
     // }
     
     <div className="App">
-      <NavBar loggedInUser={handleLoginButton}/>
-       <h2>Welcome, {user.username}!</h2>
+      <NavBar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>
   
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/login' element={<Login onLogin={setUser}/>}/>
+        <Route path='/login' element={<Login setLoggedInUser={setLoggedInUser} onLogin={setUser}/>}/>
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/classes' element={<Classes />} />
       </Routes>
     </div>
-  );
+  ) 
 }
 
 export default App;
