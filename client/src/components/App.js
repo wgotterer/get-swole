@@ -9,9 +9,27 @@ import Classes from './Classes';
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState(false);
+  const [user, setUser] = useState(null);
 
+  useEffect(() => {
+    fetch("/me").then((response) => {
+      if (response.ok) {
+        response.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
+
+
+  if (user)
   return (
+    // if (user) {
+    //   return <h2>Welcome, {user.username}!</h2>;
+    // } else {
+    //   return <Login onLogin={setUser} />;
+    // }
+    
     <div className="App">
+      <h2>Welcome, {user.username}!</h2>
       <NavBar loggedInUser={loggedInUser}/>
       <Routes>
         <Route path='/' element={<Home />} />
