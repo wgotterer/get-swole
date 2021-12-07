@@ -20,7 +20,8 @@ function NavBar({loggedInUser, setLoggedInUser}) {
             <nav>
                 <Link to='/'>Home</Link> |{' '}
                 <Link to='/dashboard'>Dashboard</Link> |{' '}
-                <Link to='/classes'>Classes</Link>
+                <Link to='/classes'>Classes</Link> |{' '}
+                <Link to='/private_classes'>Schedule a private class</Link>
             </nav>
         </div>
     )
