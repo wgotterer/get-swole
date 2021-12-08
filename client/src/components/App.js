@@ -56,7 +56,7 @@ function App() {
         <Route path='/classes' element={<Classes loggedInUser={loggedInUser}/>} />
         <Route path='/private_classes' element={<PrivateClasses loggedInUser={loggedInUser}/>} />
 
-        <Route path='/profile' element={<Profile user={user}/>}/>
+        {user ? <Route path='/profile' element={<Profile user={user}/>}/>: null}
 
         {user ? <Route path='/trainer' element={<PageTrainer user={user} />} /> : null}
 
