@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:create]
   resources :private_classes, only: [:create, :destroy, :index]
   resources :reviews, only: [:index, :create, :destroy]
-  resources :trainers, only: [:index]
+  resources :trainers, only: [:index, :show]
   resources :online_classes, only: [:create, :destroy, :index, :show]
   resources :clients, only: [:create, :show]
   post "/login", to: "sessions#create"
