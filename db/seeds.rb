@@ -32,15 +32,15 @@ jane = Trainer.create(name:"Jane", picture:"https://previews.123rf.com/images/dr
 juliette = Trainer.create(name:"Juliette", picture:"https://ih1.redbubble.net/image.363652257.7171/st,small,845x845-pad,1000x1000,f8f8f8.u4.jpg", bio:"Ruff! It's me! Your favorite furry friend!")
 william = Trainer.create(name:"William", picture:"https://i.graphicmama.com/uploads/2016/8/57a4a36fa6003-hal-the-messy-pal.png", bio:"Will.I.Am? More like Will.I.Can do this workout!")
 
-
-User.create(username:"billy", password:"billy", client_id:billy.id, trainer_id:"nil")
-User.create(username:"mandy", password:"mandy", client_id:mandy.id, trainer_id:"nil")
-User.create(username:"grim", password:"grim", client_id:grim.id, trainer_id:"nil")
-User.create(username:"dad", password:"dad", client_id: dad.id, trainer_id:"nil")
 User.create(username:"brendan", password:"brendan", client_id: "nil", trainer_id: brendan.id)
 User.create(username:"jane", password:"jane", client_id: "nil", trainer_id: jane.id)
 User.create(username:"juliette", password:"juliette", client_id: "nil" , trainer_id:juliette.id)
 User.create(username:"william", password:"william", client_id: "nil", trainer_id:william.id)
+User.create(username:"billy", password:"billy", client_id:billy.id, trainer_id:"nil")
+User.create(username:"mandy", password:"mandy", client_id:mandy.id, trainer_id:"nil")
+User.create(username:"grim", password:"grim", client_id:grim.id, trainer_id:"nil")
+User.create(username:"dad", password:"dad", client_id: dad.id, trainer_id:"nil")
+
 
 juliettepushups = OnlineClass.create(video: "Juliette push ups", description:"Push up demontration from our most beloved trainedr Juliette.", trainer_id:juliette.id, category:"Strength building", name:"If I can do it, you better be doing it!")
 juliettewalks = OnlineClass.create(video: "Juliette walks", description:"Watch and learn how to walk like Juliette.",  trainer_id:juliette.id, category:"Endurance building", name:"Take a stroll with your favorite trainer.")
@@ -52,10 +52,10 @@ ClientOnlineClass.create( online_class_id: juliettewalks.id, client_id: dad.id)
 
 # juliettewalks = OnlineClass.create(video: "Juliette walks", description:"Watch and learn how to walk like Juliette.", client_id: 1,  trainer_id: 1, category:"Endurance building", name:"Take a stroll with your favorite trainer.")
 
-PrivateClass.create(description:"I want to increase my shoulder strength.",date:"20211210040000",client_id:billy.id, trainer_id:brendan.id)
-PrivateClass.create(description:"I am ready for whatever.",date:"20211215090000",client_id:mandy.id, trainer_id:william.id)
-PrivateClass.create(description:"Need some cuteness.",date:"20211220180000",client_id:dad.id, trainer_id:juliette.id)
-PrivateClass.create(description:"Feeling a litte tight in my hips.",date:"20211210150000",client_id:grim.id, trainer_id:jane.id)
+PrivateClass.create(description:"I want to increase my shoulder strength.",date:"20211210040000",client_id:billy.id, client_name: billy.name, trainer_id:brendan.id)
+PrivateClass.create(description:"I am ready for whatever.",date:"20211215090000",client_id:mandy.id, client_name: mandy.name, trainer_id:william.id)
+PrivateClass.create(description:"Need some cuteness.",date:"20211220180000",client_id:dad.id, client_name: dad.name, trainer_id:juliette.id)
+PrivateClass.create(description:"Feeling a litte tight in my hips.",date:"20211210150000",client_id:grim.id, client_name: grim.name, trainer_id:jane.id)
 
 Review.create(content:"Juliette is the best training", rating:"10", online_class_id: juliettepushups.id, client_id: billy.id)
 Review.create(content:"I'm walking better now! Thanks Juliette!", rating:"10", online_class_id: juliettewalks.id, client_id: dad.id)
