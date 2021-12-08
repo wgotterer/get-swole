@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom';
 import {  useNavigate  } from "react-router-dom";
 
-function NavBar({loggedInUser, setLoggedInUser}) {
+function NavBar({loggedInUser, setLoggedInUser, user}) {
 
     let navigate = useNavigate();
 
@@ -22,7 +22,10 @@ function NavBar({loggedInUser, setLoggedInUser}) {
                 <Link to='/'>Home</Link> |{' '}
                 <Link to='/dashboard'>Dashboard</Link> |{' '}
                 <Link to='/classes'>Classes</Link> |{' '}
-                <Link to='/private_classes'>Schedule a private class</Link>
+                <Link to='/private_classes'>Schedule a private class</Link> |{' '}
+                 <Link to='/trainer'>Trainer</Link>
+                 {/* {user.id === 5 || 6 || 7 || 8 ? <Link to='/trainer'>Trainer</Link> : null}  */}
+
             </nav>
         </div>
     )
