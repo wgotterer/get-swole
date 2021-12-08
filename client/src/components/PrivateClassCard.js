@@ -1,10 +1,5 @@
-import { useState } from "react";
+function PrivateClassCard({oneClass}) {  
 
-
-function PrivateClassCard({oneClass}) {
-    console.log(oneClass)
-   
-    
     return oneClass ? (
         <div className='ClassCard'>
             <h2>Class time : {oneClass.date}</h2>

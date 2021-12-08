@@ -1,4 +1,5 @@
 function ClassInfo({classInfo}) {
+
     return classInfo ? (
         <div className='ClassInfo'>
            <p>{classInfo.description}</p>

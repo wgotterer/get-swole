@@ -1,22 +1,4 @@
-
 Let's Get Swole!!!!!!!!!!!
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # Project Template: React/Rails API
 
