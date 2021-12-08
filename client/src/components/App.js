@@ -7,7 +7,11 @@ import Login from './Login';
 import Dashboard from './Dashboard';
 import Classes from './Classes';
 import PrivateClasses from './PrivateClasses';
+
+import Profile from './Profile';
+
 import PageTrainer from './PageTrainer';
+
 
 function App() {
 
@@ -51,7 +55,11 @@ function App() {
         <Route path='/dashboard' element={<Dashboard loggedInUser={loggedInUser}/>} />
         <Route path='/classes' element={<Classes loggedInUser={loggedInUser}/>} />
         <Route path='/private_classes' element={<PrivateClasses loggedInUser={loggedInUser}/>} />
+
+        <Route path='/profile' element={<Profile user={user}/>}/>
+
         {user ? <Route path='/trainer' element={<PageTrainer user={user} />} /> : null}
+
 
       </Routes>
     </div>
