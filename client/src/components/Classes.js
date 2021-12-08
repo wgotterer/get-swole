@@ -1,29 +1,42 @@
 import { useEffect, useState } from "react";
 import ClassCard from "./ClassCard";
-import ClassInfo from "./ClassInfo";
+
 
 function Classes({loggedInUser}) {
-
+    const [allClasses, setAllClasses] = useState()
     const [classToDisplay, setClassToDisplay] = useState();
-
+    const [search, setSearch] = useState()
+    const [category, setCategory] = useState()
     useEffect(()=>{
         fetch('http://localhost:3000/online_classes')
         .then(resp => resp.json())
-        .then(data=>{console.log(data)
-        setClassToDisplay(data)})
+        .then(data=>{
+            setAllClasses(data)
+            setClassToDisplay(data)})
     },[])
-    console.log(classToDisplay)
-    // let singleClass = classToDisplay.map((oneclass)=>{
-    //     return <ClassCard
-    //     key={oneclass.id}
-    //     oneclass= {oneclass}
-    //     name= {oneclass.name}
-    //     category={oneclass.category}
-    //     trainer={oneclass.trainer.name}
-    //     />
-    // })
 
-
+    function handleSearch(e){
+      setSearch(e.target.value)
+      handleFilterSearch(e.target.value)
+    }
+    function handleFilterSearch(value){
+        setClassToDisplay(allClasses.filter((filterclass)=>{
+            return (filterclass.name.toLowerCase().includes(value.toLowerCase()))
+          }))
+    }
+    function handleCategory(e){
+        setCategory(e.target.value)
+        handleFilterCategory(e.target.value)
+    }
+    function handleFilterCategory(value){
+        if (value == null)
+        setClassToDisplay(allClasses)
+        else
+        setClassToDisplay(allClasses.filter((categoryclass)=>{
+            return (categoryclass.category == value)
+        }))
+    }
+    
     return classToDisplay && loggedInUser ? (
         <div className='Classes'>
             <div className='FavoriteClassContainer'>
@@ -32,17 +45,22 @@ function Classes({loggedInUser}) {
                     <label>Search: </label>
                     <input
                         type='text'
-                        name='name'
+                        name='search'
+                        id="search"
+                        placeholder="Type a class name to search..."
+                        value={search}
+                        onChange={handleSearch}
                     />
                     <label> Category: </label>
-                    <select name='goal'>
+                    <select name='category' value={category} onChange={handleCategory}>
+                        <option value="all">Pick a Category...</option>
                         <option value='Upper Body'>Upper Body</option>
                         <option value='Lower Body'>Lower Body</option>
                         <option value='Stretching and Flexibility'>Stretching and Flexibility</option>
                         <option value='Weight Loss'>Weight Loss</option>
                     </select>
                 </form>
-                {classToDisplay.map(oneClass => <ClassCard oneClass={oneClass} />)}
+                {classToDisplay.map(oneClass => <ClassCard key={oneClass.id} oneClass={oneClass} />)}
                 
             </div>
         </div>
