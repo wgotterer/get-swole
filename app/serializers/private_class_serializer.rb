@@ -1,5 +1,5 @@
 class PrivateClassSerializer < ActiveModel::Serializer
-  attributes :description, :date, :client_name
+  attributes :description, :date
   has_one :client
   has_one :trainer
 end
