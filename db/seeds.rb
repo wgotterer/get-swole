@@ -42,8 +42,8 @@ User.create(username:"jane", password:"jane", client_id: "nil", trainer_id: jane
 User.create(username:"juliette", password:"juliette", client_id: "nil" , trainer_id:juliette.id)
 User.create(username:"william", password:"william", client_id: "nil", trainer_id:william.id)
 
-juliettepushups = OnlineClass.create(video: "Juliette push ups", description:"Push up demontration from our most beloved trainedr Juliette.", trainer_id:juliette.id, category:"Strength building", name:"If I can do it, you better be doing it!")
-juliettewalks = OnlineClass.create(video: "Juliette walks", description:"Watch and learn how to walk like Juliette.",  trainer_id:juliette.id, category:"Endurance building", name:"Take a stroll with your favorite trainer.")
+juliettepushups = OnlineClass.create(video: "Juliette push ups", description:"Push up demontration from our most beloved trainedr Juliette.", trainer_id:juliette.id, category:"Upper Body", name:"If I can do it, you better be doing it!")
+juliettewalks = OnlineClass.create(video: "Juliette walks", description:"Watch and learn how to walk like Juliette.",  trainer_id:juliette.id, category:"Weight Loss", name:"Take a stroll with your favorite trainer.")
 
 ClientOnlineClass.create( online_class_id: juliettepushups.id, client_id: billy.id)
 ClientOnlineClass.create( online_class_id: juliettepushups.id, client_id: mandy.id)
