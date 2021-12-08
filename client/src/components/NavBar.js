@@ -23,8 +23,8 @@ function NavBar({loggedInUser, setLoggedInUser, user}) {
                 <Link to='/dashboard'>Dashboard</Link> |{' '}
                 <Link to='/classes'>Classes</Link> |{' '}
                 <Link to='/private_classes'>Schedule a private class</Link> |{' '}
-                 <Link to='/trainer'>Trainer</Link>
-                 {/* {user.id === 5 || 6 || 7 || 8 ? <Link to='/trainer'>Trainer</Link> : null}  */}
+                 {/* <Link to='/trainer'>Trainer</Link> */}
+                 {user["trainer_id"] && user["trainer_id"] > 0 ? <Link to='/trainer'>Trainer</Link> : null} 
 
             </nav>
         </div>

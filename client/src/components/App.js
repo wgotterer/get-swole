@@ -17,13 +17,13 @@ function App() {
 
   
   const [loggedInUser, setLoggedInUser] = useState(false);
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState({})
   useEffect(() => {
     fetch('http://localhost:3000/me', {credentials: 'include'})
     .then((response) => {
       if (response.ok) {
         response.json().then((user) =>{ setUser(user) 
-          console.log(user)
+          console.log(user["trainer_id"])
           setLoggedInUser(true)
           // console.log(loggedInUser)
        });
@@ -58,7 +58,10 @@ function App() {
 
         {user ? <Route path='/profile' element={<Profile user={user}/>}/>: null}
 
-        {user ? <Route path='/trainer' element={<PageTrainer user={user} />} /> : null}
+       
+     {/* {user ? <Route path='/trainer' element={<PageTrainer user={user} />} /> : null } */}
+  
+      {user["trainer_id"] && user["trainer_id"] > 0 ? <Route path='/trainer' element={<PageTrainer user={user} />} /> : null }
 
 
       </Routes>

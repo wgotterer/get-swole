@@ -28,6 +28,13 @@ class OnlineClassesController < ApplicationController
             render json: { errors: online_class.errors.full_messages }, status: :unprocessable_entity
           end
     end
+
+    def update
+        online_class = OnlineClass.find_by(id: params[:id])
+        online_class.update(online_class_params)
+        render json: online_class, status: :ok
+    end
+
     private    
     def online_class_params
         params.permit(:video, :description, :category, :name, :trainer_id, :client_id)
