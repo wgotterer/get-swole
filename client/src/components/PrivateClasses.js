@@ -1,7 +1,8 @@
 import {useState} from 'react';
-function PrivateClasses() {
+function PrivateClasses({user}) {
+    console.log(user)
     const [signUpPrivateClass, setSignUpPrivateClass] = useState({
-        client_id: 1,
+        client_id: user.client_id,
         trainer_id: 0,
         date: '',
         description: ''
