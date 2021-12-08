@@ -1,17 +1,13 @@
 import {useEffect, useState} from 'react';
-import {  useNavigate  } from "react-router-dom";
-import TrainerCard from './TrainerCard';
+import {useNavigate} from "react-router-dom";
 
 function Login({onLogin, setLoggedInUser}) {
-
     let navigate = useNavigate();
-    const [trainers, setTrainers] = useState()
-    const [errors, setErrors] = useState([]);
+    const [trainers, setTrainers] = useState();
     const [loginFormData, setLoginFormData] = useState({
         username: '',
         password: ''
     });
-
     const [signupFormData, setSignupFormData] = useState({
         name: '',
         username: '',
@@ -24,21 +20,18 @@ function Login({onLogin, setLoggedInUser}) {
 
     useEffect(() => {
         fetch("http://localhost:3000/trainers")
-        .then((resp)=>resp.json())
-        .then((trainersData)=> setTrainers(trainersData))
-     }, [])
-        
-   
+        .then(resp => resp.json())
+        .then(trainersData => setTrainers(trainersData));
+    }, []);
+
     function handleLoginChange(event) {
-        setLoginFormData({...loginFormData, [event.target.name]: event.target.value})
+        setLoginFormData({...loginFormData, [event.target.name]: event.target.value});
     }
 
     function handleSignupChange(event) {
-        console.log(event.target.value);
         setSignupFormData({...signupFormData, [event.target.name]: event.target.value});
     }
-  
-    
+
     function handleLogin(event) {
         event.preventDefault();
         fetch('http://localhost:3000/login', { 
@@ -49,20 +42,18 @@ function Login({onLogin, setLoggedInUser}) {
             credentials: "include",
             withCredentials: true,
             body: JSON.stringify(loginFormData)
-         })
+        })
         .then(resp => resp.json())
-        .then(data => {console.log(data)
-            onLogin(data)
-            setLoggedInUser(true)
+        .then(data => {
+            onLogin(data);
+            setLoggedInUser(true);
             setLoginFormData({
                 username: '',
                 password: ''
             });
             navigate("/dashboard");
-         });
-         
+        });
     }
- 
 
     function handleSignup(event) {
         event.preventDefault();
@@ -105,8 +96,6 @@ function Login({onLogin, setLoggedInUser}) {
         });
     }
 
-   
-  
     return trainers ? (
         <div className='Login'>
             <h2>Returning User? Log in Here:</h2>
@@ -185,13 +174,6 @@ function Login({onLogin, setLoggedInUser}) {
                     type='submit'
                 />
             </form>
-            <div className='Home'>
-            <h2>About Us</h2>
-            <p>Get Swole is the premier online workout app! With Get Swole you can focus on getting a killer workout with trainers that care! Get Swole was founded by three Software Engineers who felt crappy sitting in a chair all day and wanted to <em>get swole</em>!</p>
-            <h2>Our Trainers</h2>
-            {trainers.map(trainer => <TrainerCard trainer={trainer} key={trainer.id} />)}
-        
-         </div>
         </div>
     ) : null
 }

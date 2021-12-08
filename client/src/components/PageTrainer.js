@@ -1,32 +1,25 @@
-import React from 'react'
-import { useState ,useEffect} from 'react';
+import {useState ,useEffect} from 'react';
+
 import PageTrainerCard from './PageTrainerCard';
 
+function PageTrainer({user}) {
+    const [currentTrainer, setCurrentTrainer] = useState({});
+    const [createClassForm, setCreateClassForm] = useState({
+        video: "",
+        description: "",
+        category: "",
+        name: "",
+        trainer_id: user.trainer_id
+    });
 
- function PageTrainer({user}) {
-     console.log(user.trainer_id)
-
-     const [currentTrainer, setCurrentTrainer] = useState({})
-     const [createClassForm, setCreateClassForm] = useState(
-         {video: "",
-          description: "",
-          category: "",
-          name: "",
-          trainer_id: user.trainer_id
-        }
-     )
-
-   
     useEffect(() => {
-       fetch(`http://localhost:3000/trainers/${user.trainer_id}`)
-        .then((resp)=> resp.json())
-        .then((trainerInfo)=> setCurrentTrainer(trainerInfo))
-    }, [])
-    
-    // console.log(currentTrainer["name"]) 
+        fetch(`http://localhost:3000/trainers/${user.trainer_id}`)
+        .then(resp => resp.json())
+        .then(trainerInfo => setCurrentTrainer(trainerInfo));
+    }, []);
 
-    function handleCreateNewClass(e){
-        e.preventDefault()
+    function handleCreateNewClass(e) {
+        e.preventDefault();
         fetch("http://localhost:3000/online_classes", {
             method: "POST",
             headers: {
@@ -35,25 +28,25 @@ import PageTrainerCard from './PageTrainerCard';
             body: JSON.stringify(createClassForm)
         })
         .then(resp => resp.json())
-        .then(classData => console.log(classData))
-        setCreateClassForm({
-            video: "",
-            description: "",
-            category: "",
-            name: "",
-            trainer_id: user.trainer_id
-      })
+        .then(classData => {
+            setCreateClassForm({
+                video: "",
+                description: "",
+                category: "",
+                name: "",
+                trainer_id: user.trainer_id
+            });
+        });
     }
 
-    function handleFormClassChange(e){
-        setCreateClassForm({... createClassForm, [e.target.name] : e.target.value})
+    function handleFormClassChange(e) {
+        setCreateClassForm({...createClassForm, [e.target.name] : e.target.value});
     }
 
-    return user && currentTrainer ?(
+    return user && currentTrainer ? (
         <div>
-           
             <h1>{currentTrainer["name"]}</h1>
-            <img src={currentTrainer["picture"]} height="200" width="200"/>
+            <img src={currentTrainer["picture"]} height="200" width="200" alt='trainer'/>
             <div>Add Or Edit an Online Class</div>
             <form onSubmit={handleCreateNewClass}>
                 <lablel>Class Name</lablel>
@@ -97,4 +90,4 @@ import PageTrainerCard from './PageTrainerCard';
     ) : null
 }
 
-export default PageTrainer
+export default PageTrainer;

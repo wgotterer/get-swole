@@ -1,40 +1,45 @@
 import { useEffect, useState } from "react";
+
 import ClassCard from "./ClassCard";
 
-
 function Classes({loggedInUser}) {
-    const [allClasses, setAllClasses] = useState()
+    const [allClasses, setAllClasses] = useState();
     const [classToDisplay, setClassToDisplay] = useState();
-    const [search, setSearch] = useState()
-    const [category, setCategory] = useState()
+    const [search, setSearch] = useState();
+    const [category, setCategory] = useState();
+    
     useEffect(()=>{
         fetch('http://localhost:3000/online_classes')
         .then(resp => resp.json())
         .then(data=>{
-            setAllClasses(data)
-            setClassToDisplay(data)})
-    },[])
+            setAllClasses(data);
+            setClassToDisplay(data);
+        });
+    },[]);
 
-    function handleSearch(e){
+    function handleSearch(e) {
       setSearch(e.target.value)
       handleFilterSearch(e.target.value)
     }
-    function handleFilterSearch(value){
-        setClassToDisplay(allClasses.filter((filterclass)=>{
-            return (filterclass.name.toLowerCase().includes(value.toLowerCase()))
-          }))
+
+    function handleFilterSearch(value) {
+        setClassToDisplay(allClasses.filter(filterclass => {
+            return filterclass.name.toLowerCase().includes(value.toLowerCase());
+        }));
     }
-    function handleCategory(e){
+
+    function handleCategory(e) {
         setCategory(e.target.value)
         handleFilterCategory(e.target.value)
     }
-    function handleFilterCategory(value){
-        if (value == null)
-        setClassToDisplay(allClasses)
-        else
-        setClassToDisplay(allClasses.filter((categoryclass)=>{
-            return (categoryclass.category == value)
-        }))
+
+    function handleFilterCategory(value) {
+        if (value == null) {
+            setClassToDisplay(allClasses);
+        } else
+            setClassToDisplay(allClasses.filter( categoryclass => {
+            return (categoryclass.category === value);
+        }));
     }
     
     return classToDisplay && loggedInUser ? (
@@ -61,12 +66,9 @@ function Classes({loggedInUser}) {
                     </select>
                 </form>
                 {classToDisplay.map(oneClass => <ClassCard key={oneClass.id} oneClass={oneClass} />)}
-                
             </div>
         </div>
-    )
-    :
-    (
+    ) : (
         <p>Please log in!</p>
     )
 }

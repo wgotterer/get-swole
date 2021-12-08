@@ -1,12 +1,12 @@
 import { useState } from "react";
+
 import ClassInfo from "./ClassInfo";
 
 function ClassCard({oneClass}) {
-    console.log(oneClass)
-    const [showDetails, setShowDetails] = useState(false)
+    const [showDetails, setShowDetails] = useState(false);
 
     function handleClick(){
-        setShowDetails(!showDetails)
+        setShowDetails(!showDetails);
     }
     
     return oneClass ? (

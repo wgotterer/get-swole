@@ -1,16 +1,17 @@
 import {useState} from 'react';
+
 function PrivateClasses({user}) {
-    console.log(user)
     const [signUpPrivateClass, setSignUpPrivateClass] = useState({
         client_id: user.client_id,
         trainer_id: 0,
         date: '',
         description: ''
     });
+
     function handlePrivateSignUpForm (event) {
-        console.log(event.target.value);
         setSignUpPrivateClass({...signUpPrivateClass, [event.target.name]: event.target.value});
     }
+
     function handlePrivateClassSignUp(event) {
         event.preventDefault();
         fetch('http://localhost:3000/private_classes', {
@@ -25,10 +26,11 @@ function PrivateClasses({user}) {
             console.log(data);
         });
     }
+
     return (
         <div onSubmit={handlePrivateClassSignUp} >
-         <p>Schedule an appointment</p>
-         <form >
+            <p>Schedule an appointment</p>
+            <form >
                 <label> Trainer: </label>
                 <select name='trainer_id' value={signUpPrivateClass.trainer_id} onChange={handlePrivateSignUpForm}>
                     <option value={null}>Pick a Trainer...</option>
@@ -51,7 +53,6 @@ function PrivateClasses({user}) {
                     value={signUpPrivateClass.description}
                     onChange={handlePrivateSignUpForm}
                 />
-                
                 <input
                     type='submit'
                 />
