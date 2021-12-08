@@ -9,7 +9,7 @@ class ClientsController < ApplicationController
         end
     end
     def show
-      client = Client.find_by(id: session[:client_id])
+      client = Client.find_by(id: params[:id])
       if client
         render json: client
       else

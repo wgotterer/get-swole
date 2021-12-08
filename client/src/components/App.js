@@ -7,6 +7,7 @@ import Login from './Login';
 import Dashboard from './Dashboard';
 import Classes from './Classes';
 import PrivateClasses from './PrivateClasses';
+import Profile from './Profile';
 
 function App() {
 
@@ -50,6 +51,7 @@ function App() {
         <Route path='/dashboard' element={<Dashboard loggedInUser={loggedInUser}/>} />
         <Route path='/classes' element={<Classes loggedInUser={loggedInUser}/>} />
         <Route path='/private_classes' element={<PrivateClasses loggedInUser={loggedInUser}/>} />
+        <Route path='/profile' element={<Profile user={user}/>}/>
       </Routes>
     </div>
   ) 
