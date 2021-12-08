@@ -3,7 +3,9 @@ import ClassCard from "./ClassCard";
 import ClassInfo from "./ClassInfo";
 
 function Classes({loggedInUser}) {
-    const [classToDisplay, setClassToDisplay] = useState([]);
+
+    const [classToDisplay, setClassToDisplay] = useState();
+
     useEffect(()=>{
         fetch('http://localhost:3000/online_classes')
         .then(resp => resp.json())
@@ -11,18 +13,18 @@ function Classes({loggedInUser}) {
         setClassToDisplay(data)})
     },[])
     console.log(classToDisplay)
-    let singleClass = classToDisplay.map((oneclass)=>{
-        return <ClassCard
-        key={oneclass.id}
-        oneclass= {oneclass}
-        name= {oneclass.name}
-        category={oneclass.category}
-        trainer={oneclass.trainer.name}
-        />
-    })
+    // let singleClass = classToDisplay.map((oneclass)=>{
+    //     return <ClassCard
+    //     key={oneclass.id}
+    //     oneclass= {oneclass}
+    //     name= {oneclass.name}
+    //     category={oneclass.category}
+    //     trainer={oneclass.trainer.name}
+    //     />
+    // })
 
 
-    return loggedInUser ? (
+    return classToDisplay && loggedInUser ? (
         <div className='Classes'>
             <div className='FavoriteClassContainer'>
                 <h2>These are all of the Classes:</h2>
@@ -40,12 +42,9 @@ function Classes({loggedInUser}) {
                         <option value='Weight Loss'>Weight Loss</option>
                     </select>
                 </form>
-                {(classToDisplay[0]!==undefined)?
-                <div>{singleClass}</div>:
-                <p>Don't show clasee </p>}
+                {classToDisplay.map(oneClass => <ClassCard oneClass={oneClass} />)}
                 
             </div>
-            {/* {classToDisplay === undefined ? <p>Feel free to click on any class above to get more details about it</p> : <ClassInfo classToDisplay={classToDisplay} />} */}
         </div>
     )
     :

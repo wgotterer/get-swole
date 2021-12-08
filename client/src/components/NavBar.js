@@ -6,8 +6,9 @@ function NavBar({loggedInUser, setLoggedInUser}) {
     let navigate = useNavigate();
 
    function handleLogOut(){
-        fetch("http://localhost:3000/trainers", {
+        fetch("http://localhost:3000/logout", {
             method: "DELETE",
+            credentials: "include"
         }).then(()=>setLoggedInUser(false))
         navigate("/")
     }

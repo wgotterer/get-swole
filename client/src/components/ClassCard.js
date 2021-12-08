@@ -1,19 +1,23 @@
 import { useState } from "react";
 import ClassInfo from "./ClassInfo";
-function ClassCard({oneclass, name, category, trainer}) {
+
+function ClassCard({oneClass}) {
+
     const [showDetails, setShowDetails] = useState(false)
+
     function handleClick(){
         setShowDetails(!showDetails)
     }
-    console.log(oneclass)
-    return (
+    console.log(oneClass)
+    return oneClass ? (
         <div onClick={handleClick} className='ClassCard'>
-            <h2>Class name : {name}</h2>
-            <h2>Category : {category}</h2>
-            <h2>Trainer : {trainer}</h2>
-            {showDetails? <ClassInfo classInfo={oneclass}/>: null}
+            <h2>trying</h2>
+            <h2>Class name : {oneClass.name}</h2>
+            <h2>Category : {oneClass.category}</h2>
+            <h2>Trainer : {oneClass.trainer["name"]}</h2>
+            {showDetails? <ClassInfo classInfo={oneClass}/>: null}
         </div>
-    )
+    ) : null
 }
 
 export default ClassCard;

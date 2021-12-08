@@ -4,7 +4,7 @@ class OnlineClassesController < ApplicationController
    
 
     before_action :authorize
-    # skip_before_action :authorize, only: [:index]
+    skip_before_action :authorize, only: [:index]
 
 
     def index
