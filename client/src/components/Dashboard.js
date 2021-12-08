@@ -1,27 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ClassCard from "./ClassCard";
 import ClassInfo from "./ClassInfo";
+import PrivateClassCard from "./PrivateClassCard";
 
-function Dashboard({loggedInUser}) {
+function Dashboard({loggedInUser, user}) {
     const [classToDisplay, setClassToDisplay] = useState(undefined);
-
-    return loggedInUser ? (
+    console.log(user)
+    useEffect(()=>{ if (user.trainer_id!==0)
+        fetch(`http://localhost:3000/trainers/${user.trainer_id}`)
+         .then((resp)=> resp.json())
+         .then((data)=> {setClassToDisplay(data.private_classes)
+        console.log("trainer")}
+         )
+     else
+        fetch(`http://localhost:3000/clients/${user.client_id}`)
+         .then((resp)=> resp.json())
+         .then((data)=>{ setClassToDisplay(data.private_classes)
+        console.log("client")})},[])
+   
+    
+    return classToDisplay && loggedInUser ? (
         <div className='Dashboard'>
-            <h3>Welcome back (user's name goes here)!</h3>
-            <div className='FavoriteClassContainer'>
-                <h2>These are your favorite Classes:</h2>
-                <ClassCard />
-                <ClassCard />
-                <ClassCard />
-                <ClassCard />
+            <h3>Welcome back {user.username}!</h3>
+            <div className='UpcomingClassContainer'>
+                <h2>These are your upcoming Classes:</h2>
+                {classToDisplay.map(oneClass => <PrivateClassCard key={oneClass.id} oneClass={oneClass} />)}
+                
             </div>
-            <div className='ReccomendedClassContainer'>
-                <h2>These are classes we reccomend based on your workout goal!</h2>
-                <ClassCard />
-                <ClassCard />
-                <ClassCard />
-            </div>
-            {classToDisplay === undefined ? <p>Feel free to click on any class above to get more details about it</p> : <ClassInfo classToDisplay={classToDisplay} />}
+           
+           
         </div>
     )
     :

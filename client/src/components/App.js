@@ -52,9 +52,9 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login setLoggedInUser={setLoggedInUser} onLogin={setUser}/>}/>
-        <Route path='/dashboard' element={<Dashboard loggedInUser={loggedInUser}/>} />
+        {user? <Route path='/dashboard' element={<Dashboard loggedInUser={loggedInUser} user={user}/>} />:null}
         <Route path='/classes' element={<Classes loggedInUser={loggedInUser}/>} />
-        <Route path='/private_classes' element={<PrivateClasses loggedInUser={loggedInUser}/>} />
+        {user ? <Route path='/private_classes' element={<PrivateClasses loggedInUser={loggedInUser} user={user}/>} />: null}
 
         {user ? <Route path='/profile' element={<Profile user={user}/>}/>: null}
 
