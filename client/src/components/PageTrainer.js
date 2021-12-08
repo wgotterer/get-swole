@@ -6,7 +6,7 @@ import PageTrainerCard from './PageTrainerCard';
  function PageTrainer({user}) {
      console.log(user.trainer_id)
 
-     const [currentTrainer, setCurrentTrainer] = useState()
+     const [currentTrainer, setCurrentTrainer] = useState({})
 
    
     useEffect(() => {
@@ -15,15 +15,15 @@ import PageTrainerCard from './PageTrainerCard';
         .then((trainerInfo)=> setCurrentTrainer(trainerInfo))
     }, [])
     
-    // console.log(currentTrainer)
+    // console.log(currentTrainer["name"]) 
 
     return user && currentTrainer ?(
         <div>
             
             <h1>{currentTrainer["name"]}</h1>
             <img src={currentTrainer["picture"]} height="200" width="200"/>
-            <h2>Upcoming Classes</h2>
-            {currentTrainer["private_classes"].map((oneClass) => <PageTrainerCard oneClass={oneClass} />)}
+            <h2>Your Online Classes</h2>
+            {currentTrainer["online_classes"] && currentTrainer["online_classes"].map((oneClass) => <PageTrainerCard oneClass={oneClass} key={oneClass.id} />)}
         </div>
     ) : null
 }
