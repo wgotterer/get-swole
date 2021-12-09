@@ -6,7 +6,7 @@ function EditClassTrainer({oneClass, setAllClasses}) {
 
     function handleEditClass(e) {
         e.preventDefault();
-        fetch(`http://localhost:3000/online_classes/${oneClass.id}`, {
+        fetch(`/online_classes/${oneClass.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"

@@ -4,7 +4,7 @@ function PrivateClassCard({classId, user}) {
     const [privateClass, setPrivateClass] = useState();
    
     useEffect(()=>{
-        fetch(`http://localhost:3000/private_classes/${classId}`)
+        fetch(`/private_classes/${classId}`)
         .then(resp => resp.json())
         .then(data=>{
             setPrivateClass(data);

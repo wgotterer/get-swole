@@ -14,7 +14,7 @@ function PageTrainer({user, loggedInUser}) {
     });
 
     useEffect(() => {
-        fetch(`http://localhost:3000/trainers/${user.trainer_id}`)
+        fetch(`/trainers/${user.trainer_id}`)
         .then(resp => resp.json())
         .then(trainerInfo => 
         {
@@ -26,7 +26,7 @@ function PageTrainer({user, loggedInUser}) {
     }, []);
 
     function handleDeleteClass(oneClass){
-        fetch(`http://localhost:3000/online_classes/${oneClass.id}`, {
+        fetch(`/online_classes/${oneClass.id}`, {
             method: "DELETE"
         })
         .then(() => {
@@ -40,7 +40,7 @@ function PageTrainer({user, loggedInUser}) {
 
     function handleCreateNewClass(e) {
         e.preventDefault();
-        fetch("http://localhost:3000/online_classes", {
+        fetch("/online_classes", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

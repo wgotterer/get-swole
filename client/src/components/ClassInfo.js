@@ -20,7 +20,7 @@ function ClassInfo({classInfo, user}) {
     }
     function submitForm(event) {
         event.preventDefault();
-        fetch('http://localhost:3000/reviews', {
+        fetch('/reviews', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -44,7 +44,7 @@ function ClassInfo({classInfo, user}) {
         console.log(classInfo.reviews)
         console.log( classInfo.reviews.filter( item => item.id !== review.id))
         if (review.client_id === user.client_id)
-        fetch(`http://localhost:3000/reviews/${review.id}`,{
+        fetch(`/reviews/${review.id}`,{
         method: "DELETE",})
         .then(() => {
             console.log("deleted")
