@@ -40,9 +40,6 @@ function ClassInfo({classInfo, user}) {
         });
     }
     function handleDelete(review){
-        console.log(review.id)
-        console.log(classInfo.reviews)
-        console.log( classInfo.reviews.filter( item => item.id !== review.id))
         if (review.client_id === user.client_id)
         fetch(`http://localhost:3000/reviews/${review.id}`,{
         method: "DELETE",})
@@ -59,9 +56,9 @@ function ClassInfo({classInfo, user}) {
    
     return updateReviews && classInfo? (
         <div className='ClassInfo'>
-           <p>{classInfo.description}</p>
-           <p>{classInfo.video}</p>
-           <button onClick={handleClick}>Add review</button>
+           <p>Description:{classInfo.description}</p>
+           <p>Video:{classInfo.video}</p>
+           <button onClick={handleClick}>Tell us what you think!</button>
            {showForm?<div> <form onSubmit={submitForm} >
                 <label> Review:</label>
                 <input
@@ -88,7 +85,7 @@ function ClassInfo({classInfo, user}) {
            <p>Review: {review.content}</p>
            <p>Rating: {review.rating}/10</p>
            <p>Wrote by: {review.client_name}</p>
-           <button onClick={()=>handleDelete(review)}>delete</button>
+           <button onClick={()=>handleDelete(review)}>Delete</button>
           
               
            </div>

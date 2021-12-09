@@ -68,7 +68,9 @@ function Classes({loggedInUser, user}) {
                         <option value='Weight Loss'>Weight Loss</option>
                     </select>
                 </form>
+                <div className="classContainer">
                 {classToDisplay.map(oneClass => <ClassCard  key={oneClass.id} oneClass={oneClass} user={user}/>)}
+                </div>
             </div>
         </div>
     ) : (
