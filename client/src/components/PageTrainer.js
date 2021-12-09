@@ -106,7 +106,9 @@ function PageTrainer({user, loggedInUser}) {
                 <input type="submit"/>
             </form>
             <h2>Your Online Classes</h2>
+            <div className="trainer_grid_container">
             {allClasses && allClasses.map((oneClass) => <PageTrainerCard setAllClasses={setAllClasses} handleDeleteClass={handleDeleteClass} oneClass={oneClass} user={user} key={oneClass.id} />)}
+            </div>
         </div>
     ) : (
         <p>Please log in!</p>
