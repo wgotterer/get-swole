@@ -10,7 +10,8 @@ function Dashboard({loggedInUser, user}) {
             fetch(`http://localhost:3000/trainers/${user.trainer_id}`)
             .then(resp => resp.json())
             .then(data => {
-                setClassToDisplay(data.private_classes);
+                setClassToDisplay(data.private_classes)
+                
             });
         } else {
             fetch(`http://localhost:3000/clients/${user.client_id}`)
@@ -26,7 +27,7 @@ function Dashboard({loggedInUser, user}) {
             <h3>Welcome back {user.username}!</h3>
             <div className='UpcomingClassContainer'>
                 <h2>These are your upcoming Classes:</h2>
-                {classToDisplay.map(oneClass => <PrivateClassCard key={oneClass.id} oneClass={oneClass} />)}
+                {classToDisplay.map(oneClass =>  <PrivateClassCard key={oneClass.id} classId={oneClass.id} />)}
             </div>
         </div>
     ) : (

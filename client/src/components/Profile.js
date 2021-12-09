@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 
 function Profile({user}) {
     const [profile, setProfile] = useState(null);
-   
+    console.log(user)
     useEffect(() => {
         if (user.trainer_id!==0) {
             fetch(`http://localhost:3000/trainers/${user.trainer_id}`)
             .then(resp => resp.json())
             .then(data => {
-                setProfile(data);
+                setProfile(data)
+                console.log(data);
             });
         } else {
             fetch(`http://localhost:3000/clients/${user.client_id}`)
@@ -20,7 +21,7 @@ function Profile({user}) {
     return profile !== null ? (
         <div className='Profile'>
             <h3>Profile</h3>
-            {profile.trainer_id ===0 ? 
+            {profile.birth !==undefined ? 
                 <div>
                     <h3>Name: {profile.name}</h3>
                     <h3>Email: {profile.email}</h3>

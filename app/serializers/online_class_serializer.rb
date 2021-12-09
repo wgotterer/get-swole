@@ -3,5 +3,6 @@ class OnlineClassSerializer < ActiveModel::Serializer
 
   # has_many :clients
   has_one :trainer
+  has_many :reviews
   
 end

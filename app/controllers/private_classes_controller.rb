@@ -16,6 +16,12 @@ class PrivateClassesController < ApplicationController
     render json: private_classes, status: :ok
   end
   
+  def show
+    private_class = PrivateClass.find(params[:id])
+    render json: private_class
+  end
+    
+  
   private
 
   def private_class_params
