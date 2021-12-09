@@ -36,10 +36,10 @@ body {
   box-shadow:0 0 15px 4px rgba(58, 129, 117, 0.2);
   border-radius:10px;
   margin-right:5px;
+  
 }
 
 .login_form_container input[type=password]{
-  padding-left: 10px;
   padding: 10px;
   border:0; 
   box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
@@ -48,6 +48,74 @@ body {
   
 }
 
+.login_form_container input[type=submit] {
+  padding:10px;
+  border:none;
+  background-color:#281940;
+  color:#FFFADE;
+  font-weight:600;
+  border-radius:5px;
+}
+
 .sign_up_form_container input[type=text]{
+  padding: 10px;
+  border:0; 
+  box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
+  border-radius:10px;
+  margin-right:5px;
+}
+.sign_up_form_container input[type=date]{
+  padding: 10px;
+  border:0; 
+  box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
+  border-radius:10px;
+  margin-right:5px;
+}
+
+.sign_up_form_container select{
+  padding: 10px;
+  border:0; 
+  box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
+  border-radius:10px;
+  margin-right:5px;
+}
+
+.sign_up_form_container input[type=password]{
+  padding: 10px;
+  border:0; 
+  box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
+  border-radius:10px;
+  margin-right:5px;
+}
+
+.sign_up_form_container input[type=submit] {
+  padding:10px;
+  border:none;
+  background-color:#281940;
+  color:#FFFADE;
+  font-weight:600;
+  border-radius:5px;
+  cursor: pointer;
+}
+
+.NavBar button {
+  padding:10px;
+  border:none;
+  background-color:#B0A8B9;
+  color:#FFFADE;
+  font-weight:600;
+  border-radius:5px;
+  cursor: pointer;
+
+}
+
+.NavBar{
+  text-align: center;
   
 }
+
+.link_container Link {
+  padding: 100px;
+}
+
+

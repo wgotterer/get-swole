@@ -19,7 +19,7 @@ function NavBar({loggedInUser, setLoggedInUser, user, setUser}) {
         <div className='NavBar'>
             <h1>Get Swole! 💪</h1>
             {loggedInUser === false ? <Link to='/login'><button>Log In</button></Link> : <> <Link to='/profile'><button>Profile</button></Link> {' '} <button onClick={handleLogOut}>Logout</button> </>}
-            <nav>
+            <nav className="link_container">
                 <Link to='/'>Home</Link> {' '}
                 {loggedInUser ? <>
                     <Link to='/dashboard'>Dashboard</Link> {' '}
