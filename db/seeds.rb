@@ -83,6 +83,11 @@ julietteyoga = OnlineClass.create(video:'video url', description:'Learn how to f
 brendanjumpingjacks = OnlineClass.create(video:'video url', description:'Learn how to do jumping jacks for cardio with Brendan', trainer_id:brendan.id, category:'Weight Loss', name:'Jumping Jacks with Brendan')
 brendanrunninginplace = OnlineClass.create(video:'video url', description:'Watch Brendan practice running in place, the easier way to run (you can watch tv while you do it!!!)', trainer_id:brendan.id, category:'Weight Loss', name:'Running with Brendan')
 brendansquats = OnlineClass.create(video:'video url', description:'Brendan is back with a squat demonstration starring a special guest', trainer_id:brendan.id, category:'Lower Body', name:'Squats with Brendan')
+williamweightloss = OnlineClass.create(video:'https://www.youtube.com/watch?v=SKGAJDQ3Ks4', description:'50 rounds of 10 jumping jacks, 10 seconds juggling, 10 pushups!', trainer_id:william.id, category:'Weight Loss', name:'Burning Cals with William')
+williamchest = OnlineClass.create(video:'https://youtu.be/7L-6Hckhjy0', description:'1000 band chest presses', trainer_id:william.id, category:'Upper Body', name:'Every Day Is Chest Day')
+williamstretch = OnlineClass.create(video:'https://youtu.be/rOqQIxeLKVQ', description:'Touch your toes, pause for a deep stretch, get a reward, repeat', trainer_id:william.id, category:'Stretching and Flexibility', name:'Stretch with Wilhelm')
+
+
 
 ClientOnlineClass.create( online_class_id: juliettepushups.id, client_id: billy.id)
 ClientOnlineClass.create( online_class_id: juliettepushups.id, client_id: mandy.id)

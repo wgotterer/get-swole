@@ -184,3 +184,14 @@ input[type='datetime-local']{
   border-radius:10px;
   margin-right:5px;
 }
+
+.trainer_class_container{
+  text-align: center;
+}
+
+.trainer_grid_container{
+  display: grid;
+  grid-template-columns: repeat(3, auto ) ;
+  padding: 20px;
+  gap: 10px;
+}
