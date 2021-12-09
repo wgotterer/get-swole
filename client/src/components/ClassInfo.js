@@ -66,7 +66,7 @@ function ClassInfo({classInfo, user}) {
         
            <p>Review: {review.content}</p>
            <p>Rating: {review.rating}/10</p>
-           {/* <p>Wrote by: {review}</p> */}
+           <p>Wrote by: {user.username}</p>
 
           
               
