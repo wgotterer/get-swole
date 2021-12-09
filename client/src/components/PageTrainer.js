@@ -3,6 +3,7 @@ import {useState ,useEffect} from 'react';
 import PageTrainerCard from './PageTrainerCard';
 
 function PageTrainer({user}) {
+    const [allClasses, setAllClasses] = useState()
     const [currentTrainer, setCurrentTrainer] = useState({});
     const [createClassForm, setCreateClassForm] = useState({
         video: "",
@@ -15,14 +16,26 @@ function PageTrainer({user}) {
     useEffect(() => {
         fetch(`http://localhost:3000/trainers/${user.trainer_id}`)
         .then(resp => resp.json())
-        .then(trainerInfo => setCurrentTrainer(trainerInfo));
-    }, [createClassForm]);
+        .then(trainerInfo => 
+        {
+            setCurrentTrainer(trainerInfo)
+            setAllClasses(trainerInfo["online_classes"])
+
+        }
+        );
+    }, []);
 
     function handleDeleteClass(oneClass){
         fetch(`http://localhost:3000/online_classes/${oneClass.id}`, {
             method: "DELETE"
         })
-        .then(() => console.log("deleted"))
+        .then(() => {
+            console.log("deleted")
+            setAllClasses(allClasses => {
+                const classes = [...allClasses]
+               return classes.filter(classItem => classItem.id !== oneClass.id)
+            })
+        })
     }
 
     function handleCreateNewClass(e) {
@@ -43,6 +56,7 @@ function PageTrainer({user}) {
                 name: "",
                 trainer_id: user.trainer_id
             });
+            setAllClasses([...allClasses, createClassForm])
         });
     }
 
@@ -92,7 +106,7 @@ function PageTrainer({user}) {
                 <input type="submit"/>
             </form>
             <h2>Your Online Classes</h2>
-            {currentTrainer["online_classes"] && currentTrainer["online_classes"].map((oneClass) => <PageTrainerCard handleDeleteClass={handleDeleteClass} oneClass={oneClass} user={user} key={oneClass.id} />)}
+            {allClasses && allClasses.map((oneClass) => <PageTrainerCard setAllClasses={setAllClasses} handleDeleteClass={handleDeleteClass} oneClass={oneClass} user={user} key={oneClass.id} />)}
         </div>
     ) : null
 }

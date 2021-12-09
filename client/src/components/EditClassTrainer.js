@@ -1,7 +1,8 @@
 import {useState} from 'react';
 
-function EditClassTrainer({oneClass}) {
+function EditClassTrainer({oneClass, setAllClasses}) {
     const [editClassForm, setEditClassForm] = useState(oneClass)
+
 
     function handleEditClass(e) {
         e.preventDefault();
@@ -21,7 +22,18 @@ function EditClassTrainer({oneClass}) {
                 category: "",
                 name: ""
             });
+            setAllClasses(allClasses => {
+                const classes = [...allClasses]
+                return classes.map((classItem) => {
+                    if (classItem.id === oneClass.id){
+                        return editClassForm
+                    }else{
+                        return classItem
+                    }
+                })
+            })
         });   
+        
     }
 
     function handleEditFormChange(e) {
