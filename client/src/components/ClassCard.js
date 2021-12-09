@@ -16,7 +16,7 @@ function ClassCard({oneClass, user, handleReRender}) {
             <h2>Category : {oneClass.category}</h2>
             <h2>Trainer : {oneClass.trainer["name"]}</h2>
             </div>
-            {showDetails? <ClassInfo handleReRender={handleReRender} classInfo={oneClass} user={user}/>: null}
+            {showDetails? <ClassInfo  classInfo={oneClass} user={user}/>: null}
         </div>
     ) : null
 }
