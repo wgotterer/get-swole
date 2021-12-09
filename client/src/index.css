@@ -187,7 +187,14 @@ input[type='datetime-local']{
 
 .trainer_class_container{
   text-align: center;
+  border: 1px solid;
 }
+
+.react_video {
+height: 300px;
+width: 300px;
+}
+
 
 .trainer_grid_container{
   display: grid;
