@@ -9,10 +9,6 @@ function PageTrainerCard({oneClass, user, handleDeleteClass, setAllClasses}) {
         setShowEditForm(!showEditForm);
     }
 
- 
-
-
-
     return (
         <div>
             <h3>{oneClass.name}</h3> 

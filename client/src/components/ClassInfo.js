@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Popup from "react-popup"
 
 function ClassInfo({classInfo, user, handleReRender}) {
     const [showForm, setShowForm] = useState(false)
@@ -20,7 +19,7 @@ function ClassInfo({classInfo, user, handleReRender}) {
     }
     function submitForm(event) {
         event.preventDefault();
-        fetch('http://localhost:3000/reviews', {
+        fetch('/reviews', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -41,13 +40,12 @@ function ClassInfo({classInfo, user, handleReRender}) {
     function handleDelete(review){
         console.log(review)
         if (review.client_id === user.client_id)
-        fetch(`http://localhost:3000/reviews/${review.id}`,{
+        fetch(`/reviews/${review.id}`,{
         method: "DELETE",})
         .then( handleReRender())
         
-        else 
-        console.log("this is not your review!")
-        Popup.alert('This is not your review!');
+        else
+        alert('This is not your review!');
         
     }
    

@@ -10,7 +10,7 @@ function Classes({loggedInUser, user}) {
     const [change, setChange] = useState(false)
     
     useEffect(()=>{
-        fetch('http://localhost:3000/online_classes')
+        fetch('/online_classes')
         .then(resp => resp.json())
         .then(data=>{
             setAllClasses(data);
