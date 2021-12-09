@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function PrivateClassCard({classId}) { 
+function PrivateClassCard({classId, user}) { 
     console.log(classId)
     const [privateClass, setPrivateClass] = useState()
    
@@ -16,7 +16,7 @@ function PrivateClassCard({classId}) {
     return classId && privateClass? (
         <div className='ClassCard'>
             <h2>Class time : {privateClass.date}</h2>
-            <h2>Trainer : {privateClass.trainer.name}</h2>
+            {user.trainer_id !== 0? <h2>Client : {privateClass.client.name}</h2>:<h2>Trainer : {privateClass.trainer.name}</h2>}
             <h2>Goal : {privateClass.description}</h2>
         </div>
     ) : null

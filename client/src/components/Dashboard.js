@@ -27,7 +27,7 @@ function Dashboard({loggedInUser, user}) {
             <h3>Welcome back {user.username}!</h3>
             <div className='UpcomingClassContainer'>
                 <h2>These are your upcoming Classes:</h2>
-                {classToDisplay.map(oneClass =>  <PrivateClassCard key={oneClass.id} classId={oneClass.id} />)}
+                {classToDisplay.map(oneClass =>  <PrivateClassCard user={user} key={oneClass.id} classId={oneClass.id} />)}
             </div>
         </div>
     ) : (

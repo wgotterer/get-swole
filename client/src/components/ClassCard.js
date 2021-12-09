@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import ClassInfo from "./ClassInfo";
 
-function ClassCard({oneClass}) {
+function ClassCard({oneClass, user}) {
     const [showDetails, setShowDetails] = useState(false);
 
     function handleClick(){
@@ -10,11 +10,13 @@ function ClassCard({oneClass}) {
     }
     
     return oneClass ? (
-        <div onClick={handleClick} className='ClassCard'>
+        <div  className='ClassCard'>
+            <div onClick={handleClick} >
             <h2>Class name : {oneClass.name}</h2>
             <h2>Category : {oneClass.category}</h2>
             <h2>Trainer : {oneClass.trainer["name"]}</h2>
-            {showDetails? <ClassInfo classInfo={oneClass}/>: null}
+            </div>
+            {showDetails? <ClassInfo classInfo={oneClass} user={user}/>: null}
         </div>
     ) : null
 }

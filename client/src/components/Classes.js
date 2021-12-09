@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import ClassCard from "./ClassCard";
 
-function Classes({loggedInUser}) {
+function Classes({loggedInUser, user}) {
     const [allClasses, setAllClasses] = useState();
     const [classToDisplay, setClassToDisplay] = useState();
     const [search, setSearch] = useState();
@@ -65,7 +65,7 @@ function Classes({loggedInUser}) {
                         <option value='Weight Loss'>Weight Loss</option>
                     </select>
                 </form>
-                {classToDisplay.map(oneClass => <ClassCard key={oneClass.id} oneClass={oneClass} />)}
+                {classToDisplay.map(oneClass => <ClassCard key={oneClass.id} oneClass={oneClass} user={user}/>)}
             </div>
         </div>
     ) : (

@@ -38,7 +38,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login setLoggedInUser={setLoggedInUser} onLogin={setUser}/>}/>
         {user? <Route path='/dashboard' element={<Dashboard loggedInUser={loggedInUser} user={user}/>} />:null}
-        <Route path='/classes' element={<Classes loggedInUser={loggedInUser}/>} />
+        <Route path='/classes' element={<Classes loggedInUser={loggedInUser} user={user}/>} />
         {user ? <Route path='/private_classes' element={<PrivateClasses loggedInUser={loggedInUser} user={user}/>} />: null}
         {user ? <Route path='/profile' element={<Profile user={user}/>}/>: null}
         {user["trainer_id"] && user["trainer_id"] > 0 ? <Route path='/trainer' element={<PageTrainer user={user} />} /> : null }
