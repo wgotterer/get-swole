@@ -42,10 +42,12 @@ function Classes({loggedInUser, user}) {
             return (categoryclass.category === value);
         }));
     }
+  
     function handleReRender(){
         setChange(!change)
         console.log("change")
     }
+  
     return classToDisplay && loggedInUser ? (
         <div className='Classes'>
             <div className='FavoriteClassContainer'>

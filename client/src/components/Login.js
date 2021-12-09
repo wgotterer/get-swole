@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import {useNavigate} from "react-router-dom";
 
-function Login({onLogin, setLoggedInUser}) {
+function Login({setUser, setLoggedInUser}) {
     let navigate = useNavigate();
     const [trainers, setTrainers] = useState();
     const [loginFormData, setLoginFormData] = useState({
@@ -45,7 +45,7 @@ function Login({onLogin, setLoggedInUser}) {
         })
         .then(resp => resp.json())
         .then(data => {
-            onLogin(data);
+            setUser(data);
             setLoggedInUser(true);
             setLoginFormData({
                 username: '',
@@ -66,9 +66,7 @@ function Login({onLogin, setLoggedInUser}) {
         })
         .then(resp => resp.json())
         .then(data => {
-            console.log(data);
             const updatedData = {...signupFormData, client_id: data.id};
-            console.log(updatedData);
             handleSignupPartTwo(updatedData);
         });
     }
@@ -83,7 +81,8 @@ function Login({onLogin, setLoggedInUser}) {
         })
         .then(resp => resp.json())
         .then(data => {
-            console.log(data);
+            setLoggedInUser(true);
+            setUser(data);
             setSignupFormData({
                 name: '',
                 username: '',
@@ -93,6 +92,7 @@ function Login({onLogin, setLoggedInUser}) {
                 password: '',
                 confirm: ''
             });
+            navigate('/dashboard');
         });
     }
 

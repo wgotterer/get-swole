@@ -1,12 +1,11 @@
-import { useState, useEffect } from "react";
+import {useEffect} from "react";
 
 import PrivateClassCard from "./PrivateClassCard";
 
-function Dashboard({loggedInUser, user}) {
-    const [classToDisplay, setClassToDisplay] = useState(undefined);
+function Dashboard({loggedInUser, user, classToDisplay, setClassToDisplay}) {
 
     useEffect(() => {
-        if (user.trainer_id !== 0) {
+        if (user.trainer_id && user.trainer_id !== 0) {
             fetch(`http://localhost:3000/trainers/${user.trainer_id}`)
             .then(resp => resp.json())
             .then(data => {
@@ -20,7 +19,7 @@ function Dashboard({loggedInUser, user}) {
                 setClassToDisplay(data.private_classes);
             });
         }
-    }, []);
+    }, [user]);
    
     return classToDisplay && loggedInUser ? (
         <div className='Dashboard'>
@@ -31,7 +30,7 @@ function Dashboard({loggedInUser, user}) {
             </div>
         </div>
     ) : (
-      <p>Please log in!</p>  
+      <p>Please log in!</p>
     )
 }
 
