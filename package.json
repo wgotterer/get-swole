@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "react-player": "^2.9.0",
+    "react-popup": "^0.10.0",
     "react-router-dom": "^6.0.2"
   }
 }
