@@ -18,9 +18,7 @@ function App() {
   const [classToDisplay, setClassToDisplay] = useState(undefined);
 
   useEffect(() => {
-    fetch('http://localhost:3000/me', {
-      credentials: 'include'
-    })
+    fetch('/me')
     .then(response => {
       if (response.ok) {
         response.json()

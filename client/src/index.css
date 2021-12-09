@@ -35,6 +35,7 @@ body {
   border:0; 
   box-shadow:0 0 15px 4px rgba(58, 129, 117, 0.2);
   border-radius:10px;
+  margin-right:5px;
 }
 
 .login_form_container input[type=password]{
@@ -43,6 +44,7 @@ body {
   border:0; 
   box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
   border-radius:10px;
+  margin-right:5px;
   
 }
 

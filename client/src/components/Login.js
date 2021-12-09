@@ -19,7 +19,7 @@ function Login({setUser, setLoggedInUser}) {
     });
 
     useEffect(() => {
-        fetch("http://localhost:3000/trainers")
+        fetch("/trainers")
         .then(resp => resp.json())
         .then(trainersData => setTrainers(trainersData));
     }, []);
@@ -34,13 +34,11 @@ function Login({setUser, setLoggedInUser}) {
 
     function handleLogin(event) {
         event.preventDefault();
-        fetch('http://localhost:3000/login', { 
+        fetch('/login', { 
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            credentials: "include",
-            withCredentials: true,
             body: JSON.stringify(loginFormData)
         })
         .then(resp => resp.json())
@@ -57,7 +55,7 @@ function Login({setUser, setLoggedInUser}) {
 
     function handleSignup(event) {
         event.preventDefault();
-        fetch('http://localhost:3000/clients', {
+        fetch('/clients', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -72,7 +70,7 @@ function Login({setUser, setLoggedInUser}) {
     }
 
     function handleSignupPartTwo(updatedData) {
-        fetch('http://localhost:3000/users', {
+        fetch('/users', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
