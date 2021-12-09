@@ -1,15 +1,19 @@
 import { useState } from "react";
+import Popup from "react-popup"
 
-function ClassInfo({classInfo, user}) {
+function ClassInfo({classInfo, user, handleReRender}) {
     const [showForm, setShowForm] = useState(false)
+    
     function handleClick(){
         setShowForm(!showForm)
     }
+    console.log(user)
     const [reviewForm, setReviewForm] = useState({
         content: '',
-        rating: null,
+        rating: undefined,
         online_class_id: classInfo.id,
-        client_id: user.client_id
+        client_id: user.client_id,
+        client_name: user.username
     });
     function handleReviewForm (event) {
         setReviewForm({...reviewForm, [event.target.name]: event.target.value});
@@ -25,16 +29,28 @@ function ClassInfo({classInfo, user}) {
         })
         .then(resp => resp.json())
         .then(data => {
-            console.log(data)
             setReviewForm({
                 content: '',
-                rating: null,
+                rating: undefined,
                 online_class_id: classInfo.id,
-                client_id: user.client_id
+                client_id: user.client_id,
+                client_name:user.username
             });
         });
     }
-    console.log(classInfo.reviews)
+    function handleDelete(review){
+        console.log(review)
+        if (review.client_id === user.client_id)
+        fetch(`http://localhost:3000/reviews/${review.id}`,{
+        method: "DELETE",})
+        .then( handleReRender())
+        
+        else 
+        console.log("this is not your review!")
+        Popup.alert('This is not your review!');
+        
+    }
+   
     return classInfo ? (
         <div className='ClassInfo'>
            <p>{classInfo.description}</p>
@@ -66,8 +82,8 @@ function ClassInfo({classInfo, user}) {
         
            <p>Review: {review.content}</p>
            <p>Rating: {review.rating}/10</p>
-           <p>Wrote by: {user.username}</p>
-
+           <p>Wrote by: {review.client_name}</p>
+           <button onClick={()=>handleDelete(review)}>delete</button>
           
               
            </div>
