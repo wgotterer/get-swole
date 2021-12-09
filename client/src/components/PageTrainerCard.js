@@ -2,12 +2,16 @@ import {useState} from 'react';
 
 import EditClassTrainer from './EditClassTrainer';
 
-function PageTrainerCard({oneClass, user}) {
+function PageTrainerCard({oneClass, user, handleDeleteClass}) {
     const [showEditForm, setShowEditForm] = useState(false);
 
     function handleClick() {
         setShowEditForm(!showEditForm);
     }
+
+ 
+
+
 
     return (
         <div>
@@ -16,6 +20,7 @@ function PageTrainerCard({oneClass, user}) {
             <h3>{oneClass.description}</h3>
             <h4>{oneClass.video}</h4>
             <button onClick={handleClick}>{showEditForm ? "Close" : "Edit Class"}</button>
+            <button onClick={() => handleDeleteClass(oneClass)}>Delete</button>
             {showEditForm ? <EditClassTrainer user={user} oneClass={oneClass} /> : null}
         </div>
     )

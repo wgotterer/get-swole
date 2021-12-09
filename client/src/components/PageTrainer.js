@@ -16,7 +16,14 @@ function PageTrainer({user}) {
         fetch(`http://localhost:3000/trainers/${user.trainer_id}`)
         .then(resp => resp.json())
         .then(trainerInfo => setCurrentTrainer(trainerInfo));
-    }, []);
+    }, [createClassForm]);
+
+    function handleDeleteClass(oneClass){
+        fetch(`http://localhost:3000/online_classes/${oneClass.id}`, {
+            method: "DELETE"
+        })
+        .then(() => console.log("deleted"))
+    }
 
     function handleCreateNewClass(e) {
         e.preventDefault();
@@ -85,7 +92,7 @@ function PageTrainer({user}) {
                 <input type="submit"/>
             </form>
             <h2>Your Online Classes</h2>
-            {currentTrainer["online_classes"] && currentTrainer["online_classes"].map((oneClass) => <PageTrainerCard oneClass={oneClass} user={user} key={oneClass.id} />)}
+            {currentTrainer["online_classes"] && currentTrainer["online_classes"].map((oneClass) => <PageTrainerCard handleDeleteClass={handleDeleteClass} oneClass={oneClass} user={user} key={oneClass.id} />)}
         </div>
     ) : null
 }
