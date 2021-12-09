@@ -10,8 +10,8 @@ function ClassCard({oneClass, user}) {
     }
     
     return oneClass ? (
-        <div>
-            <div className='singleClass' onClick={handleClick} >
+        <div className='singleClass'>
+            <div  onClick={handleClick} >
             <h2>Class name : {oneClass.name}</h2>
             <h2>Category : {oneClass.category}</h2>
             <h2>Trainer : {oneClass.trainer["name"]}</h2>
