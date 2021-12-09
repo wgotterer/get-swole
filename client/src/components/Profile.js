@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 
-function Profile({user}) {
+function Profile({loggedInUser, user}) {
     const [profile, setProfile] = useState(null);
     console.log(user)
     useEffect(() => {
-        if (user.trainer_id!==0) {
+        if (user.trainer_id && user.trainer_id!==0) {
             fetch(`http://localhost:3000/trainers/${user.trainer_id}`)
             .then(resp => resp.json())
             .then(data => {
-                setProfile(data)
+                setProfile(data);
                 console.log(data);
             });
         } else {
@@ -18,7 +18,7 @@ function Profile({user}) {
         }
     }, []);
 
-    return profile !== null ? (
+    return profile !== null && loggedInUser ? (
         <div className='Profile'>
             <h3>Profile</h3>
             {profile.birth !==undefined ? 
@@ -35,7 +35,9 @@ function Profile({user}) {
                 </div>
             } 
         </div>
-    ) : null
+    ) : (
+        <p>Please log in!</p>
+    )
 }
 
 export default Profile;

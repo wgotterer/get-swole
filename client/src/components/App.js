@@ -15,6 +15,7 @@ import PageTrainer from './PageTrainer';
 function App() {
   const [loggedInUser, setLoggedInUser] = useState(false);
   const [user, setUser] = useState({});
+  const [classToDisplay, setClassToDisplay] = useState(undefined);
 
   useEffect(() => {
     fetch('http://localhost:3000/me', {
@@ -33,15 +34,17 @@ function App() {
     
   return (
     <div className="App">
-      <NavBar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} user={user}/>
+      <NavBar loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} user={user} setUser={setUser} />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/login' element={<Login setLoggedInUser={setLoggedInUser} onLogin={setUser}/>}/>
-        {user? <Route path='/dashboard' element={<Dashboard loggedInUser={loggedInUser} user={user}/>} />:null}
-        <Route path='/classes' element={<Classes loggedInUser={loggedInUser} user={user}/>} />
-        {user ? <Route path='/private_classes' element={<PrivateClasses loggedInUser={loggedInUser} user={user}/>} />: null}
-        {user ? <Route path='/profile' element={<Profile user={user}/>}/>: null}
-        {user["trainer_id"] && user["trainer_id"] > 0 ? <Route path='/trainer' element={<PageTrainer user={user} />} /> : null }
+        <Route path='/login' element={<Login setLoggedInUser={setLoggedInUser} setUser={setUser}/>}/>
+        {loggedInUser ? <>
+          <Route path='/dashboard' element={<Dashboard loggedInUser={loggedInUser} user={user} classToDisplay={classToDisplay} setClassToDisplay={setClassToDisplay}/>} />
+          <Route path='/classes' element={<Classes loggedInUser={loggedInUser} user={user}/>} />
+          <Route path='/private_classes' element={<PrivateClasses loggedInUser={loggedInUser} user={user} classToDisplay={classToDisplay} setClassToDisplay={setClassToDisplay}/>} />
+          <Route path='/profile' element={<Profile loggedInUser={loggedInUser} user={user}/>}/>
+        </> : null}
+        {user["trainer_id"] && user["trainer_id"] > 0 ? <Route path='/trainer' element={<PageTrainer user={user} loggedInUser={loggedInUser}/>} /> : null }
       </Routes>
     </div>
   ) 

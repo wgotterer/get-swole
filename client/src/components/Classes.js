@@ -42,7 +42,7 @@ function Classes({loggedInUser, user}) {
         }));
     }
     
-    return classToDisplay && loggedInUser ? (
+    return classToDisplay && loggedInUser? (
         <div className='Classes'>
             <div className='FavoriteClassContainer'>
                 <h2>These are all of the Classes:</h2>
