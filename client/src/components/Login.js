@@ -99,27 +99,29 @@ function Login({setUser, setLoggedInUser}) {
     return trainers ? (
         <div className='Login'>
             <h2>Returning User? Log in Here:</h2>
-            <form onSubmit={handleLogin}>
-                <label> Username: </label>
+            <form className="login_form_container" onSubmit={handleLogin}>
+                {/* <label> Username: </label> */}
                 <input 
                     type='text'
                     name='username'
                     value={loginFormData.username}
                     onChange={handleLoginChange}
+                    placeholder="username"
                 />
-                <label> Password: </label>
+                {/* <label> Password: </label> */}
                 <input
                     type='password'
                     name='password'
                     value={loginFormData.password}
                     onChange={handleLoginChange}
+                    placeholder="password"
                 />
                 <input
                     type='submit'
                 />
             </form>
             <h2>New User? Sign Up Here:</h2>
-            <form onSubmit={handleSignup}>
+            <form className="sign_up_form_container" onSubmit={handleSignup}>
                 <label> Full name: </label>
                 <input
                     type='text'
