@@ -45,5 +45,5 @@ PrivateClass.create(description:"I am ready for whatever.",date:"20211215090000"
 PrivateClass.create(description:"Need some cuteness.",date:"20211220180000",client_id:dad.id, trainer_id:juliette.id)
 PrivateClass.create(description:"Feeling a litte tight in my hips.",date:"20211210150000",client_id:grim.id, trainer_id:jane.id)
 
-Review.create(content:"Juliette is the best training", rating:"10", online_class_id: juliettepushups.id, client_id: billy.id)
-Review.create(content:"I'm walking better now! Thanks Juliette!", rating:"10", online_class_id: juliettewalks.id, client_id: dad.id)
+Review.create(content:"Juliette is the best training", rating:"10", online_class_id: juliettepushups.id, client_id: billy.id, client_name: billy.name)
+Review.create(content:"I'm walking better now! Thanks Juliette!", rating:"10", online_class_id: juliettewalks.id, client_id: dad.id, client_name: dad.name)

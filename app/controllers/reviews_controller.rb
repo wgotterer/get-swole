@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
   private
   
   def review_params
-    params.permit(:content, :rating, :client_id, :online_class_id)
+    params.permit(:content, :rating, :client_id, :online_class_id, :client_name)
   end
 
   def authorize
