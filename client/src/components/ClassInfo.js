@@ -1,8 +1,9 @@
 import { useState } from "react";
 
-function ClassInfo({classInfo, user, handleReRender}) {
+
+function ClassInfo({classInfo, user}) {
     const [showForm, setShowForm] = useState(false)
-    
+    const [updateReviews, setUpdateReviews] = useState(classInfo.reviews)
     function handleClick(){
         setShowForm(!showForm)
     }
@@ -35,21 +36,28 @@ function ClassInfo({classInfo, user, handleReRender}) {
                 client_id: user.client_id,
                 client_name:user.username
             });
+            setUpdateReviews([...updateReviews,data])
         });
     }
     function handleDelete(review){
-        console.log(review)
+        console.log(review.id)
+        console.log(classInfo.reviews)
+        console.log( classInfo.reviews.filter( item => item.id !== review.id))
         if (review.client_id === user.client_id)
         fetch(`/reviews/${review.id}`,{
         method: "DELETE",})
-        .then( handleReRender())
-        
-        else
-        alert('This is not your review!');
-        
+        .then(() => {
+            console.log("deleted")
+            setUpdateReviews(
+                updateReviews.filter( item => item.id !== review.id)
+            )
+        })
+        else 
+        alert('This is not your review!');    
     }
+    
    
-    return classInfo ? (
+    return updateReviews && classInfo? (
         <div className='ClassInfo'>
            <p>{classInfo.description}</p>
            <p>{classInfo.video}</p>
@@ -75,9 +83,8 @@ function ClassInfo({classInfo, user, handleReRender}) {
                 />
             </form></div>: 
             null} 
-           {classInfo.reviews? classInfo.reviews.map(review=>  
+           {updateReviews? updateReviews.map(review=>  
            <div key={review.id}>
-        
            <p>Review: {review.content}</p>
            <p>Rating: {review.rating}/10</p>
            <p>Wrote by: {review.client_name}</p>

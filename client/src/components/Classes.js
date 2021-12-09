@@ -7,7 +7,7 @@ function Classes({loggedInUser, user}) {
     const [classToDisplay, setClassToDisplay] = useState();
     const [search, setSearch] = useState();
     const [category, setCategory] = useState();
-    const [change, setChange] = useState(false)
+  
     
     useEffect(()=>{
         fetch('/online_classes')
@@ -16,7 +16,7 @@ function Classes({loggedInUser, user}) {
             setAllClasses(data);
             setClassToDisplay(data);
         });
-    },[change]);
+    },[]);
 
     function handleSearch(e) {
       setSearch(e.target.value)
@@ -42,12 +42,9 @@ function Classes({loggedInUser, user}) {
             return (categoryclass.category === value);
         }));
     }
+
   
-    function handleReRender(){
-        setChange(!change)
-        console.log("change")
-    }
-  
+
     return classToDisplay && loggedInUser ? (
         <div className='Classes'>
             <div className='FavoriteClassContainer'>
@@ -71,7 +68,7 @@ function Classes({loggedInUser, user}) {
                         <option value='Weight Loss'>Weight Loss</option>
                     </select>
                 </form>
-                {classToDisplay.map(oneClass => <ClassCard handleReRender={handleReRender} key={oneClass.id} oneClass={oneClass} user={user}/>)}
+                {classToDisplay.map(oneClass => <ClassCard  key={oneClass.id} oneClass={oneClass} user={user}/>)}
             </div>
         </div>
     ) : (
