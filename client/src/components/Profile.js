@@ -5,14 +5,14 @@ function Profile({loggedInUser, user}) {
     console.log(user)
     useEffect(() => {
         if (user.trainer_id && user.trainer_id!==0) {
-            fetch(`http://localhost:3000/trainers/${user.trainer_id}`)
+            fetch(`/trainers/${user.trainer_id}`)
             .then(resp => resp.json())
             .then(data => {
                 setProfile(data);
                 console.log(data);
             });
         } else {
-            fetch(`http://localhost:3000/clients/${user.client_id}`)
+            fetch(`/clients/${user.client_id}`)
             .then(resp => resp.json())
             .then(data => setProfile(data));
         }

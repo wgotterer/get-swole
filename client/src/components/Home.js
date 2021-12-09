@@ -6,7 +6,7 @@ function Home() {
     const [trainers, setTrainers] = useState();
 
     useEffect(() => {
-        fetch("http://localhost:3000/trainers")
+        fetch("/trainers")
         .then(resp =>resp.json())
         .then(trainersData => setTrainers(trainersData));
     }, []);

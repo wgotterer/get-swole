@@ -1,4 +1,10 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=M+PLUS+1:wght@400;900&family=Qahiri&family=Raleway:wght@100&family=Roboto+Mono:wght@300&display=swap');
+
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -29,6 +35,7 @@ body {
 .bio_container{
   padding: 10px;
 }
+
 .classContainer{
   display: grid;
   grid-template-columns: repeat(3, 300px);
@@ -49,6 +56,71 @@ body {
   padding:10px;
   border:none;
   background-color:#B0A8B9;
+=======
+
+.login_form_container input[type=text]{
+  padding: 10px;
+  border:0; 
+  box-shadow:0 0 15px 4px rgba(58, 129, 117, 0.2);
+  border-radius:10px;
+  margin-right:5px;
+  
+}
+
+.login_form_container input[type=password]{
+  padding: 10px;
+  border:0; 
+  box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
+  border-radius:10px;
+  margin-right:5px;
+  
+}
+
+.login_form_container input[type=submit] {
+  padding:10px;
+  border:none;
+  background-color:#281940;
+  color:#FFFADE;
+  font-weight:600;
+  border-radius:5px;
+}
+
+.sign_up_form_container input[type=text]{
+  padding: 10px;
+  border:0; 
+  box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
+  border-radius:10px;
+  margin-right:5px;
+}
+.sign_up_form_container input[type=date]{
+  padding: 10px;
+  border:0; 
+  box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
+  border-radius:10px;
+  margin-right:5px;
+}
+
+.sign_up_form_container select{
+  padding: 10px;
+  border:0; 
+  box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
+  border-radius:10px;
+  margin-right:5px;
+}
+
+.sign_up_form_container input[type=password]{
+  padding: 10px;
+  border:0; 
+  box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
+  border-radius:10px;
+  margin-right:5px;
+}
+
+.sign_up_form_container input[type=submit] {
+  padding:10px;
+  border:none;
+  background-color:#281940;
+
   color:#FFFADE;
   font-weight:600;
   border-radius:5px;
@@ -56,6 +128,11 @@ body {
 
 }
 .ClassInfo button {
+
+
+}
+
+.NavBar button {
 
   padding:10px;
   border:none;
@@ -65,4 +142,19 @@ body {
   border-radius:5px;
   cursor: pointer;
 
+
 }
+
+}
+
+.NavBar{
+  text-align: center;
+  
+}
+
+.link_container Link {
+  padding: 100px;
+}
+
+
+

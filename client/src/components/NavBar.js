@@ -5,9 +5,8 @@ function NavBar({loggedInUser, setLoggedInUser, user, setUser}) {
     let navigate = useNavigate();
 
     function handleLogOut() {
-        fetch("http://localhost:3000/logout", {
-            method: "DELETE",
-            credentials: "include"
+        fetch("/logout", {
+            method: "DELETE"
         })
         .then(() => {
             setLoggedInUser(false);
@@ -20,7 +19,7 @@ function NavBar({loggedInUser, setLoggedInUser, user, setUser}) {
         <div className='NavBar'>
             <h1>Get Swole! 💪</h1>
             {loggedInUser === false ? <Link to='/login'><button>Log In</button></Link> : <> <Link to='/profile'><button>Profile</button></Link> {' '} <button onClick={handleLogOut}>Logout</button> </>}
-            <nav>
+            <nav className="link_container">
                 <Link to='/'>Home</Link> {' '}
                 {loggedInUser ? <>
                     <Link to='/dashboard'>Dashboard</Link> {' '}

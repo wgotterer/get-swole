@@ -1,4 +1,5 @@
 class PrivateClassesController < ApplicationController
+  before_action :authorize
 
   def create
     private_class= PrivateClass.create!(private_class_params)

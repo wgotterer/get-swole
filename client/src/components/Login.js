@@ -19,7 +19,7 @@ function Login({setUser, setLoggedInUser}) {
     });
 
     useEffect(() => {
-        fetch("http://localhost:3000/trainers")
+        fetch("/trainers")
         .then(resp => resp.json())
         .then(trainersData => setTrainers(trainersData));
     }, []);
@@ -34,13 +34,11 @@ function Login({setUser, setLoggedInUser}) {
 
     function handleLogin(event) {
         event.preventDefault();
-        fetch('http://localhost:3000/login', { 
+        fetch('/login', { 
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            credentials: "include",
-            withCredentials: true,
             body: JSON.stringify(loginFormData)
         })
         .then(resp => resp.json())
@@ -57,7 +55,7 @@ function Login({setUser, setLoggedInUser}) {
 
     function handleSignup(event) {
         event.preventDefault();
-        fetch('http://localhost:3000/clients', {
+        fetch('/clients', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -72,7 +70,7 @@ function Login({setUser, setLoggedInUser}) {
     }
 
     function handleSignupPartTwo(updatedData) {
-        fetch('http://localhost:3000/users', {
+        fetch('/users', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -99,13 +97,14 @@ function Login({setUser, setLoggedInUser}) {
     return trainers ? (
         <div className='Login'>
             <h2>Returning User? Log in Here:</h2>
-            <form onSubmit={handleLogin}>
+            <form className="login_form_container" onSubmit={handleLogin}>
                 <label> Username: </label>
                 <input 
                     type='text'
                     name='username'
                     value={loginFormData.username}
                     onChange={handleLoginChange}
+                    placeholder="username"
                 />
                 <label> Password: </label>
                 <input
@@ -113,19 +112,22 @@ function Login({setUser, setLoggedInUser}) {
                     name='password'
                     value={loginFormData.password}
                     onChange={handleLoginChange}
+                    placeholder="password"
                 />
                 <input
                     type='submit'
                 />
             </form>
             <h2>New User? Sign Up Here:</h2>
-            <form onSubmit={handleSignup}>
-                <label> Full name: </label>
+            <form className="sign_up_form_container" onSubmit={handleSignup}>
+                <label for="fname"> Full name: </label>
                 <input
+                    id="fname"
                     type='text'
                     name='name'
                     value={signupFormData.name}
                     onChange={handleSignupChange}
+                    placeholder="full name"
                 />
                 <label> Username: </label>
                 <input
@@ -133,13 +135,15 @@ function Login({setUser, setLoggedInUser}) {
                     name='username'
                     value={signupFormData.username}
                     onChange={handleSignupChange}
+                    placeholder="username"
                 />
                 <label> Email: </label>
                 <input
-                    type='email'
+                    type='text'
                     name='email'
                     value={signupFormData.email}
                     onChange={handleSignupChange}
+                    placeholder="email"
                 />
                 <label> Birthday: </label>
                 <input
@@ -147,6 +151,7 @@ function Login({setUser, setLoggedInUser}) {
                     name='birth'
                     value={signupFormData.birth}
                     onChange={handleSignupChange}
+                    placeholder="birthday"
                 />
                 <label> Goal: </label>
                 <select name='goal' value={signupFormData.goal} onChange={handleSignupChange}>
@@ -162,6 +167,7 @@ function Login({setUser, setLoggedInUser}) {
                     name='password'
                     value={signupFormData.password}
                     onChange={handleSignupChange}
+                    placeholder="password"
                 />
                 <label> Confirm Password </label>
                 <input
@@ -169,6 +175,7 @@ function Login({setUser, setLoggedInUser}) {
                     name='confirm'
                     value={signupFormData.confirm}
                     onChange={handleSignupChange}
+                    placeholder="confirm password"
                 />
                 <input
                     type='submit'
