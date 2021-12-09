@@ -23,9 +23,9 @@ function Dashboard({loggedInUser, user, classToDisplay, setClassToDisplay}) {
    
     return classToDisplay && loggedInUser ? (
         <div className='Dashboard'>
-            <h3>Welcome back {user.username}!</h3>
+            <h3 className='welcome'>Welcome back {user.username}!</h3>
+            <h2>These are your upcoming Classes:</h2>
             <div className='UpcomingClassContainer'>
-                <h2>These are your upcoming Classes:</h2>
                 {classToDisplay.map(oneClass =>  <PrivateClassCard user={user} key={oneClass.id} classId={oneClass.id} />)}
             </div>
         </div>

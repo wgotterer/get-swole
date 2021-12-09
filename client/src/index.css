@@ -52,8 +52,6 @@ body {
 }
 
 
-
-
 .login_form_container input[type=text]{
   padding: 10px;
   border:0; 
@@ -96,13 +94,6 @@ body {
   margin-right:5px;
 }
 
-.sign_up_form_container select{
-  padding: 10px;
-  border:0; 
-  box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
-  border-radius:10px;
-  margin-right:5px;
-}
 
 .sign_up_form_container input[type=password]{
   padding: 10px;
@@ -134,7 +125,6 @@ body {
 }
 
 .NavBar button {
-
   padding:10px;
   border:none;
   background-color:#B0A8B9;
@@ -143,8 +133,6 @@ body {
   border-radius:5px;
   cursor: pointer;
 }
-
-
 
 .NavBar{
   text-align: center;
@@ -155,5 +143,44 @@ body {
   padding: 100px;
 }
 
+.welcome {
+  font-size: 30px;
+  font-weight: 600;
+  color: #b299cf
+}
+.UpcomingClassContainer{
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(2, auto);
+  gap: 10px;
+  font-size: 15px;
+  text-align: left;
+  padding: 3rem
+}
+.prviateClass {
+  border: 1px solid purple;
+  text-align: left;
+  border-radius:2em;
+}
 
-
+ select {
+  padding: 10px;
+  border:0; 
+  box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
+  border-radius:10px;
+  margin-right:5px;
+}
+input[type=text]{
+  padding: 10px;
+  border:0; 
+  box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
+  border-radius:10px;
+  margin-right:5px;
+}
+input[type='datetime-local']{
+  padding: 10px;
+  border:0; 
+  box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
+  border-radius:10px;
+  margin-right:5px;
+}

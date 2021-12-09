@@ -36,7 +36,7 @@ function PrivateClasses({loggedInUser, user, classToDisplay, setClassToDisplay})
     }
 
     return loggedInUser ? (
-        <div onSubmit={handlePrivateClassSignUp} >
+        <div className='scheduleClass' onSubmit={handlePrivateClassSignUp} >
             <p>Schedule an appointment</p>
             <form >
                 <label> Trainer: </label>

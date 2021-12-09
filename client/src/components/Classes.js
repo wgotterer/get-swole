@@ -47,7 +47,7 @@ function Classes({loggedInUser, user}) {
 
     return classToDisplay && loggedInUser ? (
         <div className='Classes'>
-            <div className='FavoriteClassContainer'>
+            <div className='ClassContainer'>
                 <h2>These are all of the Classes:</h2>
                 <form>
                     <label>Search: </label>
