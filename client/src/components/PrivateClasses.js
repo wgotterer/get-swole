@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-function PrivateClasses({user}) {
+function PrivateClasses({loggedInUser, user, classToDisplay, setClassToDisplay}) {
     const [signUpPrivateClass, setSignUpPrivateClass] = useState({
         client_id: user.client_id,
         trainer_id: 0,
@@ -24,10 +24,18 @@ function PrivateClasses({user}) {
         .then(resp => resp.json())
         .then(data => {
             console.log(data);
+            setClassToDisplay([...classToDisplay, data])
+            setSignUpPrivateClass({
+                client_id: user.client_id,
+                trainer_id: 0,
+                date: '',
+                description: ''
+            });
+            alert('Successfully signed up for class! You can now view it in your dashboard!');
         });
     }
 
-    return (
+    return loggedInUser ? (
         <div onSubmit={handlePrivateClassSignUp} >
             <p>Schedule an appointment</p>
             <form >
@@ -58,6 +66,8 @@ function PrivateClasses({user}) {
                 />
             </form>
         </div>
+    ) : (
+        <p>Please log in!</p>
     )
 }
 

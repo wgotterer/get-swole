@@ -2,7 +2,7 @@ import {useState ,useEffect} from 'react';
 
 import PageTrainerCard from './PageTrainerCard';
 
-function PageTrainer({user}) {
+function PageTrainer({user, loggedInUser}) {
     const [allClasses, setAllClasses] = useState()
     const [currentTrainer, setCurrentTrainer] = useState({});
     const [createClassForm, setCreateClassForm] = useState({
@@ -56,7 +56,7 @@ function PageTrainer({user}) {
                 name: "",
                 trainer_id: user.trainer_id
             });
-            setAllClasses([...allClasses, createClassForm])
+            setAllClasses([...allClasses, classData]);
         });
     }
 
@@ -64,34 +64,34 @@ function PageTrainer({user}) {
         setCreateClassForm({...createClassForm, [e.target.name] : e.target.value});
     }
 
-    return user && currentTrainer ? (
+    return user && currentTrainer && loggedInUser ? (
         <div>
             <h1>{currentTrainer["name"]}</h1>
             <img src={currentTrainer["picture"]} height="200" width="200" alt='trainer'/>
-            <div>Add Or Edit an Online Class</div>
+            <div>Add an Online Class</div>
             <form onSubmit={handleCreateNewClass}>
-                <lablel>Class Name</lablel>
+                <lablel>Class Name: </lablel>
                 <input
                     type="text"
                     name="name"
                     value={createClassForm.name}
                     onChange={handleFormClassChange}
                 />
-                <lablel>Description</lablel>
+                <lablel> Description: </lablel>
                 <input
                     type="text"
                     name="description"
                     value={createClassForm.description}
                     onChange={handleFormClassChange}
                 />
-                <lablel>Video</lablel>
+                <lablel> Video: </lablel>
                 <input 
                     type="text"
                     name="video"
                     value={createClassForm.video}
                     onChange={handleFormClassChange}
                 />
-                <lablel>Category</lablel>
+                <lablel> Category: </lablel>
                 <select
                     name="category"
                     value={createClassForm.category}
@@ -102,13 +102,15 @@ function PageTrainer({user}) {
                     <option value='Lower Body'>Lower Body</option>
                     <option value='Stretching and Flexibility'>Stretching and Flexibility</option>
                     <option value='Weight Loss'>Weight Loss</option>
-                </select>
+                </select> {' '}
                 <input type="submit"/>
             </form>
             <h2>Your Online Classes</h2>
             {allClasses && allClasses.map((oneClass) => <PageTrainerCard setAllClasses={setAllClasses} handleDeleteClass={handleDeleteClass} oneClass={oneClass} user={user} key={oneClass.id} />)}
         </div>
-    ) : null
+    ) : (
+        <p>Please log in!</p>
+    )
 }
 
 export default PageTrainer;
