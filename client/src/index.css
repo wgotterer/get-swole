@@ -1,8 +1,28 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: Tahoma, sans-serif; 
+  background: linear-gradient(0.9turn, #DDEEF5, #FFFADE);}
+
+.trainer_grid_container{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  padding: 20px;
+}
+
+.trainer_card_grid_item{
+  border: 1px solid black;
+  box-shadow: 5px 10px #888888;
+   
+}
+
+.title_container{
+  padding: 20px;
+  text-align: center;
+  align-content: center;
+  width: 400px;
+  display: inline-block;
+}
+
+.bio_container{
+  padding: 10px;
 }
