@@ -40,6 +40,7 @@ function PrivateClasses({loggedInUser, user, classToDisplay, setClassToDisplay})
             <p>Schedule an appointment</p>
             <form >
                 <label> Trainer: </label>
+                <label> 
                 <select name='trainer_id' value={signUpPrivateClass.trainer_id} onChange={handlePrivateSignUpForm}>
                     <option value={null}>Pick a Trainer...</option>
                     <option value={1}>Brendan</option>
@@ -47,23 +48,32 @@ function PrivateClasses({loggedInUser, user, classToDisplay, setClassToDisplay})
                     <option value={3}>Juliette</option>
                     <option value={4}>William</option>
                 </select>
+                </label>
                 <label> Date: </label>
+                <label> 
                 <input
                     type='datetime-local'
                     name='date'
                     value={signUpPrivateClass.date}
                     onChange={handlePrivateSignUpForm}
                 />
-                <label> What is your goal for this session: </label>
+                </label>
+                <label>
+                    What is your goal for this session: 
+                </label>
+                <label>
                 <input
                     type='text'
                     name='description'
                     value={signUpPrivateClass.description}
                     onChange={handlePrivateSignUpForm}
                 />
+                </label>
+                <label> 
                 <input
                     type='submit'
                 />
+                </label>
             </form>
         </div>
     ) : (

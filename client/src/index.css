@@ -38,8 +38,8 @@ body {
 
 .classContainer{
   display: grid;
-  grid-template-columns: repeat(3, 300px);
-  grid-template-rows: repeat(2, 100px);
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(3, auto);
   gap: 10px;
   font-size: 15px;
   text-align: left;
@@ -57,26 +57,21 @@ body {
   border:0; 
   box-shadow:0 0 15px 4px rgba(58, 129, 117, 0.2);
   border-radius:10px;
-  margin-right:5px;
+  margin-left: auto;
+  margin-right:auto;
   
 }
 
-.login_form_container input[type=password]{
-  padding: 10px;
-  border:0; 
-  box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
-  border-radius:10px;
-  margin-right:5px;
-  
-}
 
-.login_form_container input[type=submit] {
+input[type=submit] {
   padding:10px;
   border:none;
   background-color:#281940;
   color:#FFFADE;
   font-weight:600;
   border-radius:5px;
+  margin-left: auto;
+  margin-right:auto;
 }
 
 .sign_up_form_container input[type=text]{
@@ -84,23 +79,26 @@ body {
   border:0; 
   box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
   border-radius:10px;
-  margin-right:5px;
+  margin-left: auto;
+  margin-right:auto;
 }
 .sign_up_form_container input[type=date]{
   padding: 10px;
   border:0; 
   box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
   border-radius:10px;
-  margin-right:5px;
+  margin-left: auto;
+  margin-right:auto;
 }
 
 
-.sign_up_form_container input[type=password]{
+input[type=password]{
   padding: 10px;
   border:0; 
   box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
   border-radius:10px;
-  margin-right:5px;
+  margin-left: auto;
+  margin-right:auto;
 }
 
 .sign_up_form_container input[type=submit] {
@@ -163,25 +161,72 @@ body {
   border-radius:2em;
 }
 
- select {
+select {
   padding: 10px;
   border:0; 
   box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
   border-radius:10px;
-  margin-right:5px;
+  margin-left: auto;
+  margin-right:auto;
 }
 input[type=text]{
   padding: 10px;
   border:0; 
   box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
   border-radius:10px;
-  margin-right:5px;
+  margin-left: auto;
+  margin-right:auto;
 }
+.scheduleClass input[type=text]{
+  padding: 10px;
+  border:0; 
+  box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
+  border-radius:10px;
+  width: 800px; 
+  margin-left: auto;
+  margin-right:auto;
+}
+
 input[type='datetime-local']{
   padding: 10px;
   border:0; 
   box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
   border-radius:10px;
+
+  margin-left: auto;
+  margin-right:auto;
+  text-align: center;
+  display: center;
+}
+input[type=number]{
+  padding: 10px;
+  border:0; 
+  box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
+  border-radius:10px;
+  margin-left: auto;
+  margin-right:auto;
+}
+.ClassInfo button{
+  padding:10px;
+  border:none;
+  background-color:#B0A8B9;
+  color:#FFFADE;
+  font-weight:600;
+  border-radius:5px;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-right:auto;
+  margin-bottom: 10px;
+
+}
+label, input {
+  display: block;
+  
+}
+
+label {
+  margin-bottom: 10px;
+  text-align: center;
   margin-right:5px;
 }
 
@@ -194,4 +239,5 @@ input[type='datetime-local']{
   grid-template-columns: repeat(3, auto ) ;
   padding: 20px;
   gap: 10px;
+
 }

@@ -99,6 +99,7 @@ function Login({setUser, setLoggedInUser}) {
             <h2>Returning User? Log in Here:</h2>
             <form className="login_form_container" onSubmit={handleLogin}>
                 <label> Username: </label>
+                <label>
                 <input 
                     type='text'
                     name='username'
@@ -106,7 +107,9 @@ function Login({setUser, setLoggedInUser}) {
                     onChange={handleLoginChange}
                     placeholder="username"
                 />
+                </label>
                 <label> Password: </label>
+                <label>
                 <input
                     type='password'
                     name='password'
@@ -114,13 +117,17 @@ function Login({setUser, setLoggedInUser}) {
                     onChange={handleLoginChange}
                     placeholder="password"
                 />
+                </label>
+                <label>
                 <input
                     type='submit'
                 />
+                </label>
             </form>
             <h2>New User? Sign Up Here:</h2>
             <form className="sign_up_form_container" onSubmit={handleSignup}>
-                <label for="fname"> Full name: </label>
+                <label> Full name: </label>
+                <label> 
                 <input
                     id="fname"
                     type='text'
@@ -129,7 +136,9 @@ function Login({setUser, setLoggedInUser}) {
                     onChange={handleSignupChange}
                     placeholder="full name"
                 />
+                </label>
                 <label> Username: </label>
+                <label>
                 <input
                     type='text'
                     name='username'
@@ -137,7 +146,9 @@ function Login({setUser, setLoggedInUser}) {
                     onChange={handleSignupChange}
                     placeholder="username"
                 />
+                </label>
                 <label> Email: </label>
+                <label>
                 <input
                     type='text'
                     name='email'
@@ -145,7 +156,9 @@ function Login({setUser, setLoggedInUser}) {
                     onChange={handleSignupChange}
                     placeholder="email"
                 />
+                </label>
                 <label> Birthday: </label>
+                <label>
                 <input
                     type='date'
                     name='birth'
@@ -153,7 +166,9 @@ function Login({setUser, setLoggedInUser}) {
                     onChange={handleSignupChange}
                     placeholder="birthday"
                 />
+                </label>
                 <label> Goal: </label>
+                <label> 
                 <select name='goal' value={signupFormData.goal} onChange={handleSignupChange}>
                     <option value={null}>Pick a goal...</option>
                     <option value='Upper Body'>Upper Body</option>
@@ -161,7 +176,9 @@ function Login({setUser, setLoggedInUser}) {
                     <option value='Stretching and Flexibility'>Stretching and Flexibility</option>
                     <option value='Weight Loss'>Weight Loss</option>
                 </select>
+                </label>
                 <label> Password: </label>
+                <label>
                 <input
                     type='password'
                     name='password'
@@ -169,7 +186,9 @@ function Login({setUser, setLoggedInUser}) {
                     onChange={handleSignupChange}
                     placeholder="password"
                 />
+                </label>
                 <label> Confirm Password </label>
+                <label> 
                 <input
                     type='password'
                     name='confirm'
@@ -177,6 +196,7 @@ function Login({setUser, setLoggedInUser}) {
                     onChange={handleSignupChange}
                     placeholder="confirm password"
                 />
+                </label>
                 <input
                     type='submit'
                 />
