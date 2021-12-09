@@ -1,4 +1,6 @@
 import { useState } from "react";
+import ReactPlayer from 'react-player/youtube';
+
 
 
 function ClassInfo({classInfo, user}) {
@@ -57,17 +59,20 @@ function ClassInfo({classInfo, user}) {
     return updateReviews && classInfo? (
         <div className='ClassInfo'>
            <p>Description:{classInfo.description}</p>
-           <p>Video:{classInfo.video}</p>
-           <button onClick={handleClick}>Tell us what you think!</button>
+           <ReactPlayer height="250px" width=" 250px" url={classInfo.video}/>
+           <button className='addReview' onClick={handleClick}>Tell us what you think!</button>
            {showForm?<div> <form onSubmit={submitForm} >
                 <label> Review:</label>
+                <label>
                 <input
                     type='text'
                     name='content'
                     value={reviewForm.content}
                     onChange={handleReviewForm}
                 />
+                </label>
                 <label> Rating: </label>
+                <label>
                 <input
                     type='number'
                     name='rating'
@@ -75,6 +80,7 @@ function ClassInfo({classInfo, user}) {
                     value={reviewForm.rating}
                     onChange={handleReviewForm}
                 />
+                </label>
                 <input
                     type='submit'
                 />
