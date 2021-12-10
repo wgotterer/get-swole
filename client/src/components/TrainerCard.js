@@ -1,6 +1,6 @@
 
 import brend from "../data/brend.JPG"
-import willdog from "../data/willdog.jpg"
+import jane from "../data/jane.jpg"
 import jul from "../data/jul.jpg"
 import will from "../data/will.jpg"
 
@@ -15,7 +15,7 @@ function TrainerCard({trainer}) {
     }else if (
         trainer.id === 2
     ){
-        pictureName = willdog
+        pictureName = jane
     }else if (
         trainer.id === 3
     ){

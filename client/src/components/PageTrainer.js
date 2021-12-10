@@ -1,4 +1,8 @@
 import {useState ,useEffect} from 'react';
+import brend from "../data/brend.JPG"
+import jane from "../data/jane.jpg"
+import jul from "../data/jul.jpg"
+import will from "../data/will.jpg"
 
 import PageTrainerCard from './PageTrainerCard';
 
@@ -64,10 +68,29 @@ function PageTrainer({user, loggedInUser}) {
         setCreateClassForm({...createClassForm, [e.target.name] : e.target.value});
     }
 
+
+        let pictureName 
+    
+         if (
+            currentTrainer.id === 1 
+        ){
+            pictureName =  brend
+        }else if (
+            currentTrainer.id === 2
+        ){
+            pictureName = jane
+        }else if (
+            currentTrainer.id === 3
+        ){
+            pictureName = jul
+        }else{
+            pictureName = will
+        }
+
     return user && currentTrainer && loggedInUser ? (
         <div>
             <h1>{currentTrainer["name"]}</h1>
-            <img src={currentTrainer["picture"]} height="200" width="200" alt='trainer'/>
+            <img src={pictureName} height="200" width="200" alt='trainer'/>
             <div>Add an Online Class</div>
             <form className='classForm' onSubmit={handleCreateNewClass}>
                 <label>Class Name: 

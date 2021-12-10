@@ -35,7 +35,7 @@ function Classes({loggedInUser, user}) {
     }
 
     function handleFilterCategory(value) {
-        if (value == null) {
+        if (value == "all") {
             setClassToDisplay(allClasses);
         } else
             setClassToDisplay(allClasses.filter( categoryclass => {
