@@ -50,7 +50,7 @@ function Classes({loggedInUser, user}) {
             <div className='ClassContainer'>
                 <h2>These are all of the Classes:</h2>
                 <form>
-                    <label>Search: </label>
+                    <label>Search: 
                     <input
                         type='text'
                         name='search'
@@ -58,8 +58,9 @@ function Classes({loggedInUser, user}) {
                         placeholder="Type a class name to search..."
                         value={search}
                         onChange={handleSearch}
-                    />
-                    <label> Category: </label>
+                    /> </label>
+                    <label>Category: </label>
+                    <label>
                     <select name='category' value={category} onChange={handleCategory}>
                         <option value="all">Pick a Category...</option>
                         <option value='Upper Body'>Upper Body</option>
@@ -67,6 +68,7 @@ function Classes({loggedInUser, user}) {
                         <option value='Stretching and Flexibility'>Stretching and Flexibility</option>
                         <option value='Weight Loss'>Weight Loss</option>
                     </select>
+                    </label>
                 </form>
                 <div className="classContainer">
                 {classToDisplay.map(oneClass => <ClassCard  key={oneClass.id} oneClass={oneClass} user={user}/>)}

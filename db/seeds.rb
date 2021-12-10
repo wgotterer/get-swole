@@ -41,7 +41,7 @@ yusuf = Client.create(email:'yusuf@gmail.com', name:'Yusuf', birth:'19830313', g
 zoe = Client.create(email:'zoe@gmail.com', name:'Zoe', birth:'20020909', goal:'Stretching and Flexibility')
 
 brendan = Trainer.create(name:"Brendan", picture: "../data/brend.JPG", bio:"I can't believe it's not butter! It's Brendan")
-jane = Trainer.create(name:"Jane", picture:"https://previews.123rf.com/images/drawkman/drawkman1807/drawkman180700294/104064005-funny-cartoon-monster-vector-orange-monster-illustration-halloween-design.jpg", bio:"Hey! Jane here. I'm going to make you do crunches until your breakfast is on the floor!")
+jane = Trainer.create(name:"Jane", picture:"../data/jane.jpg", bio:"I DON'T SWEAT, I SPARKLE.")
 juliette = Trainer.create(name:"Juliette", picture:"../data/jul.jpg", bio:"Ruff! It's me! Your favorite furry friend!")
 william = Trainer.create(name:"William", picture:"../data/will.jpg", bio:"Will.I.Am? More like Will.I.Can do this workout!")
 
