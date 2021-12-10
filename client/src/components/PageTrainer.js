@@ -69,29 +69,33 @@ function PageTrainer({user, loggedInUser}) {
             <h1>{currentTrainer["name"]}</h1>
             <img src={currentTrainer["picture"]} height="200" width="200" alt='trainer'/>
             <div>Add an Online Class</div>
-            <form onSubmit={handleCreateNewClass}>
-                <lablel>Class Name: </lablel>
+            <form className='classForm' onSubmit={handleCreateNewClass}>
+                <label>Class Name: 
                 <input
                     type="text"
                     name="name"
                     value={createClassForm.name}
                     onChange={handleFormClassChange}
                 />
-                <lablel> Description: </lablel>
+                </label>
+                <label> Description: 
                 <input
                     type="text"
                     name="description"
                     value={createClassForm.description}
                     onChange={handleFormClassChange}
                 />
-                <lablel> Video: </lablel>
+                </label>
+                <label> Video: 
                 <input 
                     type="text"
                     name="video"
                     value={createClassForm.video}
                     onChange={handleFormClassChange}
                 />
-                <lablel> Category: </lablel>
+                </label>
+                <label> Category: </label>
+                <label>
                 <select
                     name="category"
                     value={createClassForm.category}
@@ -103,6 +107,7 @@ function PageTrainer({user, loggedInUser}) {
                     <option value='Stretching and Flexibility'>Stretching and Flexibility</option>
                     <option value='Weight Loss'>Weight Loss</option>
                 </select> {' '}
+                </label>
                 <input type="submit"/>
             </form>
             <h2>Your Online Classes</h2>
