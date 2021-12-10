@@ -14,7 +14,7 @@ function PrivateClassCard({classId, user}) {
         });
     },[]);
    
-    return classId && privateClass && dateString? (
+    return classId && privateClass && dateString? (  
         <div className='prviateClass'>
             <h2>Class time : {dateString} </h2>
             {user.trainer_id !== 0? <h2>Client : {privateClass.client.name}</h2>:<h2>Trainer : {privateClass.trainer.name}</h2>}

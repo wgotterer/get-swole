@@ -16,6 +16,7 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState(false);
   const [user, setUser] = useState({});
   const [classToDisplay, setClassToDisplay] = useState(undefined);
+  
 
   useEffect(() => {
     fetch('/me')
