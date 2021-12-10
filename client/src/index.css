@@ -196,7 +196,6 @@ input[type='datetime-local']{
   border:0; 
   box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
   border-radius:10px;
-
   margin-left: auto;
   margin-right:auto;
   text-align: center;
@@ -236,12 +235,19 @@ label {
 
 .trainer_class_container{
   text-align: center;
-  border: 1px solid;
+  border: 1px solid purple;
+  border-radius:2em;
 }
 
 .react_video {
+margin-left: auto;
+margin-right: auto;
 height: 300px;
 width: 300px;
+}
+.classVideo {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
@@ -251,4 +257,34 @@ width: 300px;
   padding: 20px;
   gap: 10px;
 
+}
+.trainer_class_container button{
+  padding:10px;
+  border:none;
+  background-color:#B0A8B9;
+  color:#FFFADE;
+  font-weight:600;
+  border-radius:5px;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+.classForm input[type=text]{
+  padding: 10px;
+  border:0; 
+  box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
+  border-radius:10px;
+  width: 600px; 
+  margin-left: auto;
+  margin-right:auto;
+}
+.classForm input[name=description]{
+  padding: 10px;
+  border:0; 
+  box-shadow:0 0 15px 4px rgba(58, 129, 117,.2); 
+  border-radius:10px;
+  width: 600px; 
+  height: 100px;
+  margin-left: auto;
+  margin-right:auto;
 }

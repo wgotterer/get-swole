@@ -60,7 +60,7 @@ function ClassInfo({classInfo, user}) {
         <div className='ClassInfo'>
            <p>Description:{classInfo.description}</p>
 
-           <ReactPlayer height="250px" width=" 250px" url={classInfo.video}/>
+           <ReactPlayer className='classVideo' height="250px" width=" 250px" url={classInfo.video}/>
 
 
            <button className='addReview' onClick={handleClick}>Tell us what you think!</button>
