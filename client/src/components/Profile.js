@@ -1,15 +1,17 @@
 import { useState, useEffect } from "react";
+import brend from "../data/brend.JPG"
+import jane from "../data/jane.jpg"
+import jul from "../data/jul.jpg"
+import will from "../data/will.jpg"
 
 function Profile({loggedInUser, user}) {
     const [profile, setProfile] = useState(null);
-    console.log(user)
     useEffect(() => {
         if (user.trainer_id && user.trainer_id!==0) {
             fetch(`/trainers/${user.trainer_id}`)
             .then(resp => resp.json())
             .then(data => {
                 setProfile(data);
-                console.log(data);
             });
         } else {
             fetch(`/clients/${user.client_id}`)
@@ -17,6 +19,23 @@ function Profile({loggedInUser, user}) {
             .then(data => setProfile(data));
         }
     }, []);
+    let pictureName  
+    if (
+       user.id === 1 
+   ){
+       pictureName =  brend
+   }else if (
+       user.id === 2
+   ){
+       pictureName = jane
+   }else if (
+       user.id === 3
+   ){
+       pictureName = jul
+   }else{
+       pictureName = will
+   }
+
 
     return profile !== null && loggedInUser ? (
         <div className='Profile'>
@@ -30,7 +49,7 @@ function Profile({loggedInUser, user}) {
                 </div> : 
                 <div>
                     <h3>Name: {profile.name}</h3>
-                    <img height="200" width="200" src={profile.picture} alt='profile'/>
+                    <img height="200" width="200" src={pictureName} alt='profile'/>
                     <p>Bio: {profile.bio}</p>
                 </div>
             } 
