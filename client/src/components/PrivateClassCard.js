@@ -8,7 +8,6 @@ function PrivateClassCard({classId, user}) {
         .then(resp => resp.json())
         .then(data=>{
             setPrivateClass(data);
-         
             let d = new Date(data.date);
             setDateString( d.toLocaleString('en-US'))
         });

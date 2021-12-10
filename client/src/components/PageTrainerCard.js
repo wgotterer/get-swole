@@ -1,8 +1,5 @@
 import {useState} from 'react';
 import ReactPlayer from 'react-player/youtube';
-
-
-
 import EditClassTrainer from './EditClassTrainer';
 
 function PageTrainerCard({oneClass, user, handleDeleteClass, setAllClasses}) {
