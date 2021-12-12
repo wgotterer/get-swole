@@ -67,10 +67,7 @@ function PageTrainer({user, loggedInUser}) {
     function handleFormClassChange(e) {
         setCreateClassForm({...createClassForm, [e.target.name] : e.target.value});
     }
-
-
         let pictureName 
-    
          if (
             currentTrainer.id === 1 
         ){

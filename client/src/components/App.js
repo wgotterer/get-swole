@@ -1,7 +1,6 @@
 import './App.css';
 import {Route, Routes} from 'react-router-dom';
 import {useState ,useEffect} from 'react';
-
 import NavBar from './NavBar';
 import Home from './Home';
 import Login from './Login';
@@ -16,6 +15,7 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState(false);
   const [user, setUser] = useState({});
   const [classToDisplay, setClassToDisplay] = useState(undefined);
+  
 
   useEffect(() => {
     fetch('/me')
