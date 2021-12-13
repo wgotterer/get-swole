@@ -8,13 +8,13 @@ function Profile({loggedInUser, user}) {
     const [profile, setProfile] = useState(null);
     useEffect(() => {
         if (user.trainer_id && user.trainer_id!==0) {
-            fetch(`/trainers/${user.trainer_id}`)
+            fetch(`/api/trainers/${user.trainer_id}`)
             .then(resp => resp.json())
             .then(data => {
                 setProfile(data);
             });
         } else {
-            fetch(`/clients/${user.client_id}`)
+            fetch(`/api/clients/${user.client_id}`)
             .then(resp => resp.json())
             .then(data => setProfile(data));
         }

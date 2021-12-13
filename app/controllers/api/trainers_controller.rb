@@ -1,4 +1,4 @@
-class TrainersController < ApplicationController
+class Api::TrainersController < ApplicationController
   
     def index
         trainers = Trainer.all

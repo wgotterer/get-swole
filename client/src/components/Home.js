@@ -5,7 +5,7 @@ function Home() {
     const [trainers, setTrainers] = useState();
 
     useEffect(() => {
-        fetch("/trainers")
+        fetch("/api/trainers")
         .then(resp =>resp.json())
         .then(trainersData => setTrainers(trainersData));
     }, []);

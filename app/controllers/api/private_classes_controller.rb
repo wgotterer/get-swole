@@ -1,4 +1,4 @@
-class PrivateClassesController < ApplicationController
+class Api::PrivateClassesController < ApplicationController
   before_action :authorize
 
   def create

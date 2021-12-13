@@ -4,7 +4,7 @@ function EditClassTrainer({oneClass, setAllClasses}) {
     const [editClassForm, setEditClassForm] = useState(oneClass)
     function handleEditClass(e) {
         e.preventDefault();
-        fetch(`/online_classes/${oneClass.id}`, {
+        fetch(`/api/online_classes/${oneClass.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"

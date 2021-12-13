@@ -1,4 +1,4 @@
-class ClientOnlineClassesController < ApplicationController
+class Api::ClientOnlineClassesController < ApplicationController
     before_action :authorize
 
     private

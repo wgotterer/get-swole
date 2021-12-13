@@ -70,7 +70,7 @@ function Login({setUser, setLoggedInUser}) {
     }
 
     function handleSignupPartTwo(updatedData) {
-        fetch('/users', {
+        fetch('/api/users', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

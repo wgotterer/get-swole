@@ -30,7 +30,7 @@ function PageTrainer({user, loggedInUser}) {
     }, []);
 
     function handleDeleteClass(oneClass){
-        fetch(`/online_classes/${oneClass.id}`, {
+        fetch(`/api/online_classes/${oneClass.id}`, {
             method: "DELETE"
         })
         .then(() => {
@@ -44,7 +44,7 @@ function PageTrainer({user, loggedInUser}) {
 
     function handleCreateNewClass(e) {
         e.preventDefault();
-        fetch("/online_classes", {
+        fetch("/api/online_classes", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
