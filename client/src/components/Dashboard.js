@@ -4,21 +4,20 @@ let currentDate = (new Date()).toISOString()
 function Dashboard({loggedInUser, user, classToDisplay, setClassToDisplay}) {
     const [futureClasses, setFutureClasses]= useState([])
     const [pastClasses, setPastClasses] = useState([])
-    
+
     useEffect(() => {
         if (user.trainer_id && user.trainer_id !== 0) {
             fetch(`/trainers/${user.trainer_id}`)
             .then(resp => resp.json())
             .then(data => {
-                data.private_classes.map((item)=> {(item.date >= currentDate)? setFutureClasses([item,...futureClasses]): setPastClasses([item,...pastClasses])})
+                data.private_classes.map((item)=> {(item.date >= currentDate) ? setFutureClasses((futureClasses) => [item,...futureClasses]) : setPastClasses((pastClasses) => [item,...pastClasses])})
                 setClassToDisplay(data.private_classes)
             });
         } else {
             fetch(`/clients/${user.client_id}`)
             .then(resp => resp.json())
             .then(data => {
-                data.private_classes.map((item)=> {(item.date >= currentDate)? setFutureClasses([item,...futureClasses]): setPastClasses([item,...pastClasses])})
-
+                data.private_classes.map((item)=> {(item.date >= currentDate) ? setFutureClasses((futureClasses) => [item,...futureClasses]) : setPastClasses((pastClasses) => [item,...pastClasses])})
                 setClassToDisplay(data.private_classes);
             });
         }
@@ -34,7 +33,7 @@ function Dashboard({loggedInUser, user, classToDisplay, setClassToDisplay}) {
                 {futureClasses.map(oneClass =>  <PrivateClassCard user={user} key={oneClass.id} classId={oneClass.id} />)}    
             </div>
             <h2>These are your past Classes:</h2>
-            <div>
+            <div className='pastClasses'>
             {pastClasses.map(oneClass =>  <PrivateClassCard user={user} key={oneClass.id} classId={oneClass.id} />)}
             </div>
         </div>
