@@ -19,7 +19,7 @@ function Login({setUser, setLoggedInUser}) {
     });
 
     useEffect(() => {
-        fetch("/trainers")
+        fetch("/api/trainers")
         .then(resp => resp.json())
         .then(trainersData => setTrainers(trainersData));
     }, []);
@@ -34,7 +34,7 @@ function Login({setUser, setLoggedInUser}) {
 
     function handleLogin(event) {
         event.preventDefault();
-        fetch('/login', { 
+        fetch('/api/login', { 
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -55,7 +55,7 @@ function Login({setUser, setLoggedInUser}) {
 
     function handleSignup(event) {
         event.preventDefault();
-        fetch('/clients', {
+        fetch('/api/clients', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
