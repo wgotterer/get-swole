@@ -1,10 +1,10 @@
 import {useEffect, useState} from "react";
-
 import PrivateClassCard from "./PrivateClassCard";
 let currentDate = (new Date()).toISOString()
 function Dashboard({loggedInUser, user, classToDisplay, setClassToDisplay}) {
     const [futureClasses, setFutureClasses]= useState([])
     const [pastClasses, setPastClasses] = useState([])
+    
     useEffect(() => {
         if (user.trainer_id && user.trainer_id !== 0) {
             fetch(`/trainers/${user.trainer_id}`)
@@ -17,6 +17,8 @@ function Dashboard({loggedInUser, user, classToDisplay, setClassToDisplay}) {
             fetch(`/clients/${user.client_id}`)
             .then(resp => resp.json())
             .then(data => {
+                data.private_classes.map((item)=> {(item.date >= currentDate)? setFutureClasses([item,...futureClasses]): setPastClasses([item,...pastClasses])})
+
                 setClassToDisplay(data.private_classes);
             });
         }

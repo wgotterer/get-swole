@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import ClassCard from "./ClassCard";
 
 function Classes({loggedInUser, user}) {
