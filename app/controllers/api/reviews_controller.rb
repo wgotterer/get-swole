@@ -1,4 +1,4 @@
-class ReviewsController < ApplicationController
+class Api::ReviewsController < ApplicationController
   before_action :authorize
 
   def create

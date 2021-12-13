@@ -9,7 +9,7 @@ function Classes({loggedInUser, user}) {
   
     
     useEffect(()=>{
-        fetch('/online_classes')
+        fetch('/api/online_classes')
         .then(resp => resp.json())
         .then(data=>{
             setAllClasses(data);

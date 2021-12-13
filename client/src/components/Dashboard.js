@@ -7,14 +7,14 @@ function Dashboard({loggedInUser, user, classToDisplay, setClassToDisplay}) {
 
     useEffect(() => {
         if (user.trainer_id && user.trainer_id !== 0) {
-            fetch(`/trainers/${user.trainer_id}`)
+            fetch(`/api/trainers/${user.trainer_id}`)
             .then(resp => resp.json())
             .then(data => {
                 data.private_classes.map((item)=> {(item.date >= currentDate) ? setFutureClasses((futureClasses) => [item,...futureClasses]) : setPastClasses((pastClasses) => [item,...pastClasses])})
                 setClassToDisplay(data.private_classes)
             });
         } else {
-            fetch(`/clients/${user.client_id}`)
+            fetch(`/api/clients/${user.client_id}`)
             .then(resp => resp.json())
             .then(data => {
                 data.private_classes.map((item)=> {(item.date >= currentDate) ? setFutureClasses((futureClasses) => [item,...futureClasses]) : setPastClasses((pastClasses) => [item,...pastClasses])})

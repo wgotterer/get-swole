@@ -14,7 +14,7 @@ function PrivateClasses({loggedInUser, user, classToDisplay, setClassToDisplay})
 
     function handlePrivateClassSignUp(event) {
         event.preventDefault();
-        fetch('/private_classes', {
+        fetch('/api/private_classes', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
