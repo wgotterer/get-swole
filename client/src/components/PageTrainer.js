@@ -18,7 +18,7 @@ function PageTrainer({user, loggedInUser}) {
     });
 
     useEffect(() => {
-        fetch(`/trainers/${user.trainer_id}`)
+        fetch(`/api/trainers/${user.trainer_id}`)
         .then(resp => resp.json())
         .then(trainerInfo => 
         {
