@@ -1,4 +1,3 @@
-
 import brend from "../data/brend.JPG"
 import jane from "../data/jane.jpg"
 import jul from "../data/jul.jpg"

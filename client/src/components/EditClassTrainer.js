@@ -2,8 +2,6 @@ import {useState} from 'react';
 
 function EditClassTrainer({oneClass, setAllClasses}) {
     const [editClassForm, setEditClassForm] = useState(oneClass)
-
-
     function handleEditClass(e) {
         e.preventDefault();
         fetch(`/online_classes/${oneClass.id}`, {
