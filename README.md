@@ -9,7 +9,9 @@ Using custom routes in Rails, a session cookie is created when a user logs in or
 
 Demo the app here --> https://getting-swole-app.herokuapp.com/
 
-Watch a video walkthrough here --> https://dev.to/wgotterer/get-swole-the-reactrails-workout-app-112b
+[![Alternate Text]({image-url})]({https://www.youtube.com/watch?v=GZfXz4jRI9s} "Walkthrough")
+
+Watch all in-depth video walkthrough here --> https://dev.to/wgotterer/get-swole-the-reactrails-workout-app-112b
 
 trainer login --> username: wilhelm -- password: wilhelm
 
