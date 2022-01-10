@@ -11,6 +11,8 @@ Demo the app here --> https://getting-swole-app.herokuapp.com/
 
 Watch a video walkthrough here --> https://dev.to/wgotterer/get-swole-the-reactrails-workout-app-112b
 
-trainer login --> username: wilhelm password: wilhelm
+trainer login --> username: wilhelm -- password: wilhelm
+
+user login --> username: billy -- password: billy
 
 
